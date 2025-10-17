@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387a0ce375231a64caa37d81c82895f8, type: 3}
+  m_Name: Wizard Dialogues
+  m_EditorClassIdentifier: 
+  encounters:
+  - encounterTag: 
+    dialogueGroups:
+    - dialogueTag: Greetings
+      npcLines:
+      - Greet you I shall, fellow coworker!
+      - We are about to throw a party to celebrate you joining our crew.
+      - But... we are lacking coffee. Would you be so kind as to bring us some?
+      - You're an ORC, after all. And as they say, "Orcs MUST work".
+      - I'll be waiting for you here. :D
+      playerResponses: []
+    - dialogueTag: 
+      npcLines: []
+      playerResponses: []
