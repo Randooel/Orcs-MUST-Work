@@ -91,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
         if(direction != Vector3.zero)
         {
             animator.SetBool("isWalking", true);
+            
         }
         else
         {
