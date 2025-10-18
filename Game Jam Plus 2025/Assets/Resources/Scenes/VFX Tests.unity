@@ -468,7 +468,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 689543087035738516, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0490144
+      value: -0.17
       objectReference: {fileID: 0}
     - target: {fileID: 689543087035738516, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
       propertyPath: m_LocalPosition.z
@@ -505,6 +505,18 @@ PrefabInstance:
     - target: {fileID: 2814450694793325375, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
       propertyPath: m_Name
       value: VFX_Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793641828474115242, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793641828474115242, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793641828474115242, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
