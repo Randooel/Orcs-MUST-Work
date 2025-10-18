@@ -148,6 +148,8 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("isWalking", false);
         animator.Play("Idle");
+
+        Debug.Log("Stop Walk");
     }
 
     

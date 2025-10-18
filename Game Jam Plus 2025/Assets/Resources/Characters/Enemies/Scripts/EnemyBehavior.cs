@@ -46,6 +46,8 @@ public abstract class EnemyBehavior : MonoBehaviour
     Vector2 lastVelocity;
     float bounceFactor = 0.8f;
 
+    private bool _isDuringThrow;
+
 
     public int Damage1 { get => _damage1; set => _damage1 = value; }
     protected int Damage2 { get => damage2; set => damage2 = value; }
@@ -130,6 +132,8 @@ public abstract class EnemyBehavior : MonoBehaviour
                 float throwForce = collision.GetComponentInParent<PlayerAttacks1>().CurrentThrowForce;
                 var direction = collision.transform;
 
+                _isDuringThrow = true;
+
                 HandleTakeDamage(dmg);
 
                 HandleThrown(throwForce, direction);
@@ -139,16 +143,34 @@ public abstract class EnemyBehavior : MonoBehaviour
 
     protected void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Wall"))
+        if(collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Enemy"))
         {
             Vector2 normal = collision.contacts[0].normal;
             m_rigidbody.linearVelocity = Vector2.Reflect(lastVelocity, normal) * bounceFactor;
+
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                var direction = collision.transform;
+                var enemy = collision.gameObject.GetComponent<EnemyBehavior>();
+
+                enemy.HandleThrown(50f, direction);
+
+                _currentHealth -= 1;
+                enemy._currentHealth -= 1;
+                enemy.SwitchState(State.Chase);
+
+                Debug.Log("enemyHealth: " + enemy._currentHealth);
+            }
         }
-        if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
+        if(collision.gameObject.CompareTag("Player"))
         {
             var direction = collision.transform;
 
             HandleThrown(15f, direction);
+
+            var player = collision.gameObject.GetComponent<PlayerHealth>();
+
+            player.TakeDamage(-1);
         }
     }
 
@@ -201,12 +223,16 @@ public abstract class EnemyBehavior : MonoBehaviour
     }
     protected virtual void HandleChase()
     {
+        Debug.Log("CHASE STATE!");
+
         var rand = Random.Range(0, _playerTargets.Length);
 
         _currentTarget = _playerTargets[rand];
         _attackRange.gameObject.SetActive(true);
 
         _isChasing = true;
+        _isDuringThrow = false;
+
         _animator.SetTrigger("chase");
     }
     protected virtual void HandleAttack1()
