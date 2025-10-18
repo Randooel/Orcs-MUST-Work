@@ -21,6 +21,12 @@ public class PlayerMovement : MonoBehaviour
     [Header("Shadow Config")]
     [SerializeField] GameObject _shadow;
 
+    #region Particles Variables
+    [SerializeField] protected ParticleSystem dustParticles;
+    [SerializeField] protected Rigidbody2D rigidBody;
+    protected Vector2 particleStartPos;
+    #endregion
+
     void Start()
     {
         // This script setup
@@ -29,10 +35,14 @@ public class PlayerMovement : MonoBehaviour
         // Finding references
         animator = GetComponent<Animator>();
         _dialogueManager = FindAnyObjectByType<DialogueManager>();
+
+        particleStartPos = dustParticles.transform.localPosition;
     }
 
     void FixedUpdate()
     {
+        StartDustParticles();
+
         if(canMove)
         {
             Move();
@@ -61,12 +71,20 @@ public class PlayerMovement : MonoBehaviour
             _orcVisual.rotation = Quaternion.Euler(0, 180f, 0);
 
             direction += Vector3.left;
+            
+            Vector2 particlePosition = particleStartPos;
+            particlePosition.x *= -1;
+            dustParticles.transform.localPosition = particlePosition;
+            dustParticles.transform.rotation = Quaternion.Euler(0, 180, 0);
+
         }
         if (Input.GetKey(KeyCode.D))
         {
             _orcVisual.rotation = Quaternion.Euler(0, 360f, 0);
 
             direction += Vector3.right;
+            dustParticles.transform.localPosition = particleStartPos;
+            dustParticles.transform.rotation = Quaternion.Euler(0,0,0); 
         }
 
         // Handle animations
@@ -85,6 +103,20 @@ public class PlayerMovement : MonoBehaviour
     private void ChangeMovement(float value)
     {
         _moveSpeed = value;
+    }
+
+    private void StartDustParticles()
+    {
+        if (animator.GetBool("isWalking"))
+        {
+            dustParticles.Play();
+        }
+        else
+        {
+            dustParticles.Stop();
+        }
+
+
     }
 
     private void Jump()
