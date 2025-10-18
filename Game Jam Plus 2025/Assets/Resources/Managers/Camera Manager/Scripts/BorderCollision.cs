@@ -12,7 +12,10 @@ public class BorderCollision : MonoBehaviour
     private void Start()
     {
         _cameraManager = FindAnyObjectByType<CameraManager>();
-        colliders = GetComponents<Collider2D>();
+        if(colliders == null)
+        {
+            Debug.Log("No camera colliders found!");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

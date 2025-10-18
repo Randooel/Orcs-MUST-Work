@@ -43,7 +43,9 @@ public abstract class EnemyBehavior : MonoBehaviour
     [SerializeField] protected EnemyCollisionDetection _detectionRange;
     [SerializeField] protected EnemyCollisionDetection _attackCollider;
     [SerializeField] protected Rigidbody2D m_rigidbody;
-    [SerializeField] protected Vector2 _currentTrajectory;
+    Vector2 lastVelocity;
+
+    
 
     public int Damage1 { get => _damage1; set => _damage1 = value; }
     protected int Damage2 { get => damage2; set => damage2 = value; }
@@ -112,6 +114,11 @@ public abstract class EnemyBehavior : MonoBehaviour
         }
     }
 
+    protected void FixedUpdate()
+    {
+        lastVelocity = m_rigidbody.linearVelocity;
+    }
+
     // COLLISION AND HEALTH RELETADE FUNCTIONS
     protected void OnTriggerEnter2D(Collider2D collision)
     {
@@ -135,10 +142,26 @@ public abstract class EnemyBehavior : MonoBehaviour
         if(collision.gameObject.CompareTag("Wall"))
         {
             Debug.Log(collision.gameObject.name);
-    
-            var direction = _currentTrajectory;
 
-            float force = m_rigidbody.linearVelocity.magnitude * 2f;
+            /*
+            var direction = collision.transform;
+
+            float force = 400f;
+            */
+
+            Vector2 normal = collision.contacts[0].normal;
+            m_rigidbody.linearVelocity = Vector2.Reflect(lastVelocity, normal);
+
+            /*
+            if(collision.gameObject.name == "Left Collider" || collision.gameObject.name == "Right Collider")
+            {
+                m_rigidbody.linearVelocityX *= -1;
+            }
+            else
+            {
+                m_rigidbody.linearVelocityY *= -1;
+            }
+            */
 
             //HandleThrown(force, direction);
         }
@@ -200,8 +223,6 @@ public abstract class EnemyBehavior : MonoBehaviour
 
         _isChasing = true;
         _animator.SetTrigger("chase");
-
-        _currentTrajectory = Vector3.zero;
     }
     protected virtual void HandleAttack1()
     {
@@ -230,8 +251,8 @@ public abstract class EnemyBehavior : MonoBehaviour
     protected virtual void HandleThrown(float tForce, Transform collisionDirection)
     {
         var trajectory = (transform.position - collisionDirection.position).normalized;
-        _currentTrajectory = trajectory;
 
+        Debug.Log(trajectory);
         m_rigidbody.AddForce(trajectory * tForce, ForceMode2D.Impulse);
     }
 

@@ -331,6 +331,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.182
       objectReference: {fileID: 0}
+    - target: {fileID: 6614069594887173351, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
+      propertyPath: _dialogueBox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614069594887173351, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
+      propertyPath: _dialogueText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6838648794821027027, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -351,9 +359,12 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6614069594887173351, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
+    - {fileID: 3983611671268534006, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
     m_RemovedGameObjects:
     - {fileID: 4390333047654640430, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
+    - {fileID: 7724943443240703542, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 670570103812259042, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
       insertIndex: -1
@@ -482,6 +493,7 @@ MonoBehaviour:
   _attackRange: {fileID: 1168683885581412491}
   _detectionRange: {fileID: 4354209238506309064}
   _attackCollider: {fileID: 0}
+  m_rigidbody: {fileID: 0}
 --- !u!50 &4685399470506275184
 Rigidbody2D:
   serializedVersion: 5
@@ -494,7 +506,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0

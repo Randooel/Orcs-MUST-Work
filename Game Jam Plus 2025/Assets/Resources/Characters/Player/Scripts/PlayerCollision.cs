@@ -1,4 +1,6 @@
 using UnityEngine;
+using System;
+using System.Collections;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -21,7 +23,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-
+            // _playerHealth.CurrentHealht -= 1;
         }
     }
 
@@ -41,4 +43,7 @@ public class PlayerCollision : MonoBehaviour
     {
         _collider2D.enabled = false;
     }
+
+    // COROUTINES
+    
 }

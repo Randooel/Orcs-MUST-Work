@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(canMove)
         {
@@ -77,6 +77,11 @@ public class PlayerMovement : MonoBehaviour
         }
         
         transform.position += direction.normalized * _moveSpeed * Time.deltaTime;
+    }
+
+    private void ChangeMovement(float value)
+    {
+        _moveSpeed = value;
     }
 
     private void Jump()

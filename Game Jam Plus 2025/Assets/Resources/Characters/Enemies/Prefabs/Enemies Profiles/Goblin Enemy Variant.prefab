@@ -110,7 +110,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5122639965437443967, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: _maxHealth
-      value: 6
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5122639965437443967, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: m_rigidbody
@@ -152,7 +152,8 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.30021608
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 821788072856113285, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
