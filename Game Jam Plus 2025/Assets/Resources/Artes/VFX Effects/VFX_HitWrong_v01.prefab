@@ -29,10 +29,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6508097789133841281}
+  - {fileID: 321606195111641678}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8197504753396899974
+--- !u!1 &4906931751073316677
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,23 +40,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6508097789133841281}
-  - component: {fileID: 6801416735013400422}
-  - component: {fileID: 8799251542524363649}
+  - component: {fileID: 321606195111641678}
+  - component: {fileID: 7694734770666753994}
+  - component: {fileID: 6210243701188050055}
   m_Layer: 0
-  m_Name: VFXGraph_HitWrong
+  m_Name: VFXGraph_HitEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6508097789133841281
+--- !u!4 &321606195111641678
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8197504753396899974}
+  m_GameObject: {fileID: 4906931751073316677}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -65,15 +65,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4489618174044208338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!2083052967 &6801416735013400422
+--- !u!2083052967 &7694734770666753994
 VisualEffect:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8197504753396899974}
+  m_GameObject: {fileID: 4906931751073316677}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: c419863fed1670a4c9766ed3b2625372, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: a0c43f1a474c8f946a45fa2f06673dbf, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -103,14 +103,14 @@ VisualEffect:
       m_Array: []
     m_Bool:
       m_Array: []
---- !u!73398921 &8799251542524363649
+--- !u!73398921 &6210243701188050055
 VFXRenderer:
   serializedVersion: 1
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8197504753396899974}
+  m_GameObject: {fileID: 4906931751073316677}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

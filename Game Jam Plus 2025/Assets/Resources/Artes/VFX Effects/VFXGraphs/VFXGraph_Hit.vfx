@@ -19,7 +19,7 @@ MonoBehaviour:
       x: 257
       y: 302
       width: 474
-      height: 2374
+      height: 1905
     contents:
     - model: {fileID: 8926484042661614700}
       id: 0
@@ -36,10 +36,10 @@ MonoBehaviour:
   - title: Burst2
     position:
       serializedVersion: 2
-      x: 905
-      y: 311
+      x: 892
+      y: 348
       width: 474
-      height: 2374
+      height: 1859
     contents:
     - model: {fileID: 8926484042661614990}
       id: 0
@@ -56,10 +56,10 @@ MonoBehaviour:
   - title: Beat
     position:
       serializedVersion: 2
-      x: 1446
+      x: 1453
       y: 306
-      width: 494
-      height: 2513
+      width: 487
+      height: 2141
     contents:
     - model: {fileID: 8926484042661615054}
       id: 0
@@ -97,10 +97,10 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: -43
+    x: 89
     y: 265
-    width: 2580
-    height: 2684
+    width: 2448
+    height: 2614
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 282, y: 1542}
+  m_UIPosition: {x: 282, y: 1239}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -583,7 +583,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614952}
   - {fileID: 8926484042661614984}
   - {fileID: 8926484042661614792}
-  m_UIPosition: {x: 282, y: 1892}
+  m_UIPosition: {x: 282, y: 1423}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -1568,9 +1568,9 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661614979}
       inputSlot: {fileID: 8926484042661614985}
-    position: {x: -43, y: 2406}
+    position: {x: 89, y: 1927}
     expandedSlots: []
-    expanded: 1
+    expanded: 0
     supecollapsed: 0
 --- !u!114 &8926484042661614979
 MonoBehaviour:
@@ -1958,7 +1958,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661614993}
-  m_UIPosition: {x: 930, y: 370}
+  m_UIPosition: {x: 917, y: 407}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2178,7 +2178,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661615012}
-  m_UIPosition: {x: 930, y: 816}
+  m_UIPosition: {x: 917, y: 811}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2744,7 +2744,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 930, y: 1551}
+  m_UIPosition: {x: 917, y: 1236}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -2784,7 +2784,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615028}
   - {fileID: 8926484042661615031}
   - {fileID: 8926484042661615037}
-  m_UIPosition: {x: 930, y: 1901}
+  m_UIPosition: {x: 917, y: 1423}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -3479,7 +3479,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615041}
       inputSlot: {fileID: 8926484042661615032}
-    position: {x: 754.94525, y: 2371.705}
+    position: {x: 759, y: 1958}
     expandedSlots: []
     expanded: 1
     supecollapsed: 0
@@ -4210,7 +4210,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":0.0,"y":-2.0,"z":0.0},"size":{"x":7.0,"y":8.0,"z":7.0}}'
+      m_SerializableObject: '{"center":{"x":-7.402935981750488,"y":-2.0,"z":0.0},"size":{"x":7.0,"y":8.0,"z":7.0}}'
     m_Space: 0
   m_Property:
     name: bounds
@@ -4766,7 +4766,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 1491, y: 1546}
+  m_UIPosition: {x: 1478, y: 1236}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -4808,7 +4808,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615094}
   - {fileID: 8926484042661615100}
   - {fileID: 8926484042661615285}
-  m_UIPosition: {x: 1471, y: 1925}
+  m_UIPosition: {x: 1478, y: 1423}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
