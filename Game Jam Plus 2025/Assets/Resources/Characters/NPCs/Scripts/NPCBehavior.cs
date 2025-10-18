@@ -45,7 +45,6 @@ public class NPCBehavior : MonoBehaviour
         {
             _currentPlayerMovement = collision.GetComponentInParent<PlayerMovement>();
             _currentPlayerMovement.canMove = false;
-
             _currentPlayerMovement.StopWalk();
 
             _dialogueBox.SetActive(true);
