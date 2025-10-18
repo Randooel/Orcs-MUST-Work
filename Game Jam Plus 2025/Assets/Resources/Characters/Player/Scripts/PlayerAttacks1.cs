@@ -19,6 +19,7 @@ public class PlayerAttacks1 : MonoBehaviour
 
     public int CurrentDamage { get => _currentDamage; set => _currentDamage = value; }
     public float CurrentThrowForce { get => _currentThrowForce; set => _currentThrowForce = value; }
+    public bool IsAnim { get => _isAnim; set => _isAnim = value; }
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class PlayerAttacks1 : MonoBehaviour
 
     void Update()
     {
-        if (_playerMovement.canMove && !_isAnim && Input.GetMouseButtonDown(0))
+        if (_playerMovement.canMove && !IsAnim && Input.GetMouseButtonDown(0))
         {
             Attack();
         }
@@ -66,7 +67,7 @@ public class PlayerAttacks1 : MonoBehaviour
             _playerMovement.animator.SetTrigger("quick attack 2");
         }
 
-        _isAnim = true;
+        IsAnim = true;
 
         if(_currentCoroutine != null)
         {
@@ -87,7 +88,7 @@ public class PlayerAttacks1 : MonoBehaviour
 
     public void ToggleIsAnim()
     {
-        _isAnim = false;
+        IsAnim = false;
     }
 
     public void ActivateCanMove()

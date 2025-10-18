@@ -149,6 +149,10 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isWalking", false);
         animator.Play("Idle");
 
+        var playerAttack1 = GetComponent<PlayerAttacks1>();
+
+        playerAttack1.IsAnim = false;
+
         Debug.Log("Stop Walk");
     }
 
