@@ -19,7 +19,7 @@ MonoBehaviour:
       x: 257
       y: 302
       width: 474
-      height: 2374
+      height: 2354
     contents:
     - model: {fileID: 8926484042661614700}
       id: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
     x: -302
     y: 282
     width: 1725
-    height: 2394
+    height: 2390
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -559,7 +559,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614952}
   - {fileID: 8926484042661614984}
   - {fileID: 8926484042661614792}
-  m_UIPosition: {x: 282, y: 1892}
+  m_UIPosition: {x: 282, y: 1872}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -636,7 +636,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"25749788ea45fc24886d216bf48babb1","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"75633f393d0f1dc42a4fbbe87e8a9913","type":3}}'
     m_Space: -1
   m_Property:
     name: mainTexture
@@ -3310,7 +3310,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"9bca6d2adb70023448fdfe48986ba098","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"12358d1e931056b409f5b97370701837","type":3}}'
     m_Space: -1
   m_Property:
     name: mainTexture
@@ -4838,7 +4838,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"25749788ea45fc24886d216bf48babb1","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"601ed930d1067ef4b840ba3796ed99ad","type":3}}'
     m_Space: -1
   m_Property:
     name: mainTexture
