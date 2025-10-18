@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using EasyTextEffects;
 
 public class NPCBehavior : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class NPCBehavior : MonoBehaviour
     [Header("Dialogue ¨Visual")]
     [SerializeField] GameObject _dialogueBox;
     [SerializeField] TextMeshPro _dialogueText;
+    [SerializeField] GameObject _npcCamera;
+    [SerializeField] Transform _playerPosition;
 
     [Space(10)]
     [SerializeField] PlayerMovement _currentPlayerMovement;
@@ -21,6 +24,11 @@ public class NPCBehavior : MonoBehaviour
 
     void Start()
     {
+        // Setting this script up
+        DisableCamera();
+
+        // Setting references up
+
         _dialogueManager = FindAnyObjectByType<DialogueManager>();
 
         _dialogueBox.SetActive(false);
@@ -41,9 +49,11 @@ public class NPCBehavior : MonoBehaviour
             _currentPlayerMovement.StopWalk();
 
             _dialogueBox.SetActive(true);
+            EnableCamera();
+
+            _currentPlayerMovement.DOMoveSomewhere(transform.position, _playerPosition.position, 0.5f);
 
             _dialogueManager.SetDialogue(this, _dialogueSO, _currentDialogueGroup, _dialogueBox, _dialogueText);
-            _dialogueManager.PlayDialogue();
         }
     }
 
@@ -52,8 +62,20 @@ public class NPCBehavior : MonoBehaviour
         _currentPlayerMovement.canMove = true;
         _currentPlayerMovement = null;
 
+        DisableCamera();
+
         _dialogueBox.SetActive(false);
 
         //_currentEncounter++;
+    }
+
+    public void EnableCamera()
+    {
+        _npcCamera.SetActive(true);
+    }
+
+    public void DisableCamera()
+    {
+        _npcCamera.SetActive(false);
     }
 }

@@ -130,13 +130,15 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Use these functions to make other scripts control temporarily the player's movement and jump respectively
-    public void DOMoveSomewhere(Vector3 finalPos, float duration)
+    public void DOMoveSomewhere(Vector3 npcPos, Vector3 finalPos, float duration)
     {
         canMove = false;
 
         transform.DOLocalMove(finalPos, duration).OnComplete(() =>
         {
-            canMove = true;
+            var direction = _orcVisual.position - npcPos;
+
+            _orcVisual.transform.DOLocalRotate(direction, 0.1f);
         });
     }
 

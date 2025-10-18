@@ -1,9 +1,10 @@
 using TMPro;
 using UnityEngine;
+using EasyTextEffects;
 
 public class DialogueManager : MonoBehaviour
 {
-    private PlayerMovement _playerMovement;
+    private DialogueUI _dialogueUI;
     private NPCBehavior _npcBehavior;
 
     public DialogueSO _currentDialogueSO;
@@ -19,6 +20,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private int currentEncounter;
     [SerializeField] public bool isOnDialogue;
 
+    [Space(10)]
+    [SerializeField] TextEffect _textEffect;
+
     public int CurrentLine { get => _currentLine; set => _currentLine = value; }
     public int CurrentDialogueGroup { get => _currentDialogueGroup; set => _currentDialogueGroup = value; }
     public int MaxDialogueGroup { get => maxDialogueGroup; set => maxDialogueGroup = value; }
@@ -27,7 +31,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
-        
+        _dialogueUI = GetComponent<DialogueUI>();
     }
 
     void Update()
@@ -44,12 +48,16 @@ public class DialogueManager : MonoBehaviour
     public void SetDialogue(NPCBehavior nBehavior, DialogueSO dialogue, int dialogueGroup, GameObject dBox, TextMeshPro text)
     {
         _npcBehavior = nBehavior;
+        _textEffect = _npcBehavior.gameObject.GetComponentInChildren<TextEffect>();
 
         _currentDialogueSO = dialogue;
         CurrentDialogueGroup = dialogueGroup;
         
         _currentDialogueText = text;
         _currentDialogueBox = dBox;
+
+        _dialogueUI.DOIntroBars();
+        PlayDialogue();
     }
 
     public void PlayDialogue()
@@ -59,6 +67,11 @@ public class DialogueManager : MonoBehaviour
         var dialogue = _currentDialogueSO.encounters[CurrentEncounter].dialogueGroups[CurrentDialogueGroup];
 
         _currentDialogueText.text = dialogue.npcLines[CurrentLine];
+
+        _textEffect.StopAllEffects();
+        _textEffect.Refresh();
+
+        _textEffect.StartManualEffect("Typewritter");
     }
 
     public void CheckDialogue()
@@ -85,6 +98,8 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         isOnDialogue = false;
+
+        _dialogueUI.DOExitBars();
 
         _npcBehavior.OnDialogueEnd();
 

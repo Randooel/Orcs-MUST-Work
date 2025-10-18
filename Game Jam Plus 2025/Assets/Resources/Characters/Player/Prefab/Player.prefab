@@ -5196,7 +5196,7 @@ MonoBehaviour:
   _moveSpeed: 6
   _orcVisual: {fileID: 8446433672488563099}
   _shadow: {fileID: 8360924074858381093}
-  dustParticles: {fileID: 0}
+  dustParticles: {fileID: 2189982088663751497}
   rigidBody: {fileID: 0}
 --- !u!114 &1186646960129992776
 MonoBehaviour:
@@ -5211,7 +5211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentDamage: 0
-  _currentThrowForce: 0
+  _currentThrowForce: 100
   _hitCounter: 0
   _resetCounterTime: 1.5
   _isAnim: 0
@@ -5286,8 +5286,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDamping: 0
+  m_Mass: 1
+  m_LinearDamping: 100
   m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: af155a1c148616f45838f0c814281075, type: 2}
@@ -5299,7 +5299,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &2681348838965081056
 GameObject:
