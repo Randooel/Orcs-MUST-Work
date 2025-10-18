@@ -4,6 +4,8 @@ using DG.Tweening;
 
 public class PlayerAttacks1 : MonoBehaviour
 {
+    private DialogueManager _dialogueManger;
+    
     [Header("Other Scripts & Components References")]
     private PlayerMovement _playerMovement;
 
@@ -24,6 +26,8 @@ public class PlayerAttacks1 : MonoBehaviour
         {
             _playerMovement = GetComponent<PlayerMovement>();
         }
+
+        _dialogueManger = FindAnyObjectByType<DialogueManager>();
     }
 
     void Update()
@@ -88,7 +92,14 @@ public class PlayerAttacks1 : MonoBehaviour
 
     public void ActivateCanMove()
     {
-        _playerMovement.canMove = true;
+        if(_dialogueManger.isOnDialogue)
+        {
+            return;
+        }
+        else
+        {
+            _playerMovement.canMove = true;
+        }
     }
 
     private void ResetHitCounter(int maxCount)

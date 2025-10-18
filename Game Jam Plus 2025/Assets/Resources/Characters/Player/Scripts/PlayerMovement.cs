@@ -6,6 +6,8 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private DialogueManager _dialogueManager;
+
     [Header("Other Scripts & Components References")]
     public Animator animator;
 
@@ -26,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
         // Finding references
         animator = GetComponent<Animator>();
+        _dialogueManager = FindAnyObjectByType<DialogueManager>();
     }
 
     void FixedUpdate()
@@ -102,6 +105,18 @@ public class PlayerMovement : MonoBehaviour
         {
             canMove = true;
         });
+    }
+
+
+    // Implementar essa função para a animação de andar parar imediatamente
+    public void StopWalk()
+    {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+
+        if (stateInfo.IsName("Walk"))
+        {
+            animator.Play("Idle");
+        }
     }
 
     

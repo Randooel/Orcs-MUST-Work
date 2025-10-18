@@ -592,6 +592,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3223861789660281849, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.65
+      objectReference: {fileID: 0}
     - target: {fileID: 6124306447294352755, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
       propertyPath: m_Name
       value: NPC
@@ -1239,6 +1243,7 @@ MonoBehaviour:
   _currentDialogueGroup: 0
   maxDialogueGroup: 0
   currentEncounter: 0
+  isOnDialogue: 0
 --- !u!1001 &1291511173322717898
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1254,6 +1259,10 @@ PrefabInstance:
     - target: {fileID: 434727664628231898, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: m_Interpolate
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434727664628231898, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: m_LinearDamping
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 434727664628231898, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: m_CollisionDetection

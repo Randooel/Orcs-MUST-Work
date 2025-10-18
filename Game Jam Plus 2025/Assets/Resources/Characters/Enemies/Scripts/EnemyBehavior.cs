@@ -141,10 +141,14 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Wall"))
         {
-            Debug.Log(collision.gameObject.name);
-
             Vector2 normal = collision.contacts[0].normal;
             m_rigidbody.linearVelocity = Vector2.Reflect(lastVelocity, normal) * bounceFactor;
+        }
+        if(collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
+        {
+            var direction = collision.transform;
+
+            HandleThrown(15f, direction);
         }
     }
 

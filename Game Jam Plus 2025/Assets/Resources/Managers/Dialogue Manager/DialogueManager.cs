@@ -17,6 +17,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private int _currentDialogueGroup = 0;
     [SerializeField][Range(0, 10)] private int maxDialogueGroup;
     [SerializeField] private int currentEncounter;
+    [SerializeField] public bool isOnDialogue;
 
     public int CurrentLine { get => _currentLine; set => _currentLine = value; }
     public int CurrentDialogueGroup { get => _currentDialogueGroup; set => _currentDialogueGroup = value; }
@@ -31,19 +32,19 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-
-
-        // DEBUG SCRIPT
-        /*
-        if(Input.GetMouseButtonDown(0))
+        if(isOnDialogue)
         {
-            PlayDialogue();
+            if (Input.GetMouseButtonDown(0))
+            {
+                CheckDialogue();
+            }
         }
-        */
     }
 
-    public void SetDialogue(DialogueSO dialogue, int dialogueGroup, GameObject dBox, TextMeshPro text)
+    public void SetDialogue(NPCBehavior nBehavior, DialogueSO dialogue, int dialogueGroup, GameObject dBox, TextMeshPro text)
     {
+        _npcBehavior = nBehavior;
+
         _currentDialogueSO = dialogue;
         CurrentDialogueGroup = dialogueGroup;
         
@@ -53,15 +54,26 @@ public class DialogueManager : MonoBehaviour
 
     public void PlayDialogue()
     {
+        isOnDialogue = true;
+
         var dialogue = _currentDialogueSO.encounters[CurrentEncounter].dialogueGroups[CurrentDialogueGroup];
+
         _currentDialogueText.text = dialogue.npcLines[CurrentLine];
+    }
 
-        CurrentLine++;
+    public void CheckDialogue()
+    {
+        var dialogue = _currentDialogueSO.encounters[CurrentEncounter].dialogueGroups[CurrentDialogueGroup];
 
-        if(CurrentLine > dialogue.npcLines.Count && dialogue.playerResponses != null)
+        if (CurrentLine >= dialogue.npcLines.Count -1)
         {
             EndDialogue();
-            ShowPlayerResponses();
+        }
+        else
+        {
+            CurrentLine++;
+
+            PlayDialogue();
         }
     }
 
@@ -72,12 +84,14 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        isOnDialogue = false;
+
+        _npcBehavior.OnDialogueEnd();
+
         _currentDialogueText = null;
         _currentDialogueBox = null;
 
         _currentDialogueSO = null;
         CurrentDialogueGroup = 0;
-
-        _npcBehavior.OnDialogueEnd();
     }
 }

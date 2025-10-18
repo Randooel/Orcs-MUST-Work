@@ -35,14 +35,14 @@ public class NPCBehavior : MonoBehaviour
     {
         if (collision.CompareTag("Arm"))
         {
-            Debug.Log("Collided with " + collision.name);
-
             _currentPlayerMovement = collision.GetComponentInParent<PlayerMovement>();
             _currentPlayerMovement.canMove = false;
 
+            _currentPlayerMovement.StopWalk();
+
             _dialogueBox.SetActive(true);
 
-            _dialogueManager.SetDialogue(_dialogueSO, _currentDialogueGroup, _dialogueBox, _dialogueText);
+            _dialogueManager.SetDialogue(this, _dialogueSO, _currentDialogueGroup, _dialogueBox, _dialogueText);
             _dialogueManager.PlayDialogue();
         }
     }
