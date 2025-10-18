@@ -44,8 +44,8 @@ public abstract class EnemyBehavior : MonoBehaviour
     [SerializeField] protected EnemyCollisionDetection _attackCollider;
     [SerializeField] protected Rigidbody2D m_rigidbody;
     Vector2 lastVelocity;
+    float bounceFactor = 0.8f;
 
-    
 
     public int Damage1 { get => _damage1; set => _damage1 = value; }
     protected int Damage2 { get => damage2; set => damage2 = value; }
@@ -143,27 +143,8 @@ public abstract class EnemyBehavior : MonoBehaviour
         {
             Debug.Log(collision.gameObject.name);
 
-            /*
-            var direction = collision.transform;
-
-            float force = 400f;
-            */
-
             Vector2 normal = collision.contacts[0].normal;
-            m_rigidbody.linearVelocity = Vector2.Reflect(lastVelocity, normal);
-
-            /*
-            if(collision.gameObject.name == "Left Collider" || collision.gameObject.name == "Right Collider")
-            {
-                m_rigidbody.linearVelocityX *= -1;
-            }
-            else
-            {
-                m_rigidbody.linearVelocityY *= -1;
-            }
-            */
-
-            //HandleThrown(force, direction);
+            m_rigidbody.linearVelocity = Vector2.Reflect(lastVelocity, normal) * bounceFactor;
         }
     }
 
@@ -252,7 +233,6 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         var trajectory = (transform.position - collisionDirection.position).normalized;
 
-        Debug.Log(trajectory);
         m_rigidbody.AddForce(trajectory * tForce, ForceMode2D.Impulse);
     }
 
