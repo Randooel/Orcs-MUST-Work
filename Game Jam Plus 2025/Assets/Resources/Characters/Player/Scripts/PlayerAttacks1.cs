@@ -46,6 +46,8 @@ public class PlayerAttacks1 : MonoBehaviour
         if (_hitCounter == 0)
         {
             _hitCounter++;
+            CurrentThrowForce = 5f;
+
             StopCoroutine(WaitToResetHitCounter());
 
             //transform.DOMoveX(transform.position.x + 1.5f, 0.5f);
@@ -55,6 +57,8 @@ public class PlayerAttacks1 : MonoBehaviour
         else if (_hitCounter == 1)
         {
             _hitCounter++;
+            CurrentThrowForce = 10f;
+
             StopCoroutine(WaitToResetHitCounter());
 
             _playerMovement.animator.SetTrigger("quick attack 1");
@@ -62,6 +66,8 @@ public class PlayerAttacks1 : MonoBehaviour
         else if (_hitCounter == 2)
         {
             _hitCounter++;
+            CurrentThrowForce = 50f;
+
             StopCoroutine(WaitToResetHitCounter());
 
             _playerMovement.animator.SetTrigger("quick attack 2");
