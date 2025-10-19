@@ -1,4 +1,7 @@
+using DG.Tweening;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -10,6 +13,11 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int _currentHealth;
     [SerializeField] int _maxHealth = 5;
 
+    [Header("VFX")]
+    #region VFX
+    [SerializeField] protected GameObject hit;
+    #endregion
+
     public int CurrentHealth { get => _currentHealth; set => _currentHealth = value; }
     public int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
 
@@ -17,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     {
         // Set up
         RestoreHealth(_maxHealth);
+        hit.gameObject.SetActive(false);
 
         // Setting references up
         _playerMovement = GetComponent<PlayerMovement>();
@@ -54,5 +63,17 @@ public class PlayerHealth : MonoBehaviour
         _animator.SetTrigger("death");
 
         //_gameManager.RebootGame();
+    }
+
+    // VFX ATTACKS
+    public void PlayVFX()
+    {
+        hit.gameObject.SetActive(true);
+        //hit.gameObject.GetComponentInChildren<VisualEffect>().Play();
+
+        DOVirtual.DelayedCall(0.1f, () =>
+        {
+            hit.gameObject.SetActive(false);
+        });
     }
 }

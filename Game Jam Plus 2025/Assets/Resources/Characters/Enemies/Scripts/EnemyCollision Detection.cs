@@ -33,6 +33,8 @@ public class EnemyCollisionDetection : MonoBehaviour
             {
                 var playerHealth = collision.GetComponent<PlayerHealth>();
 
+                playerHealth.PlayVFX();
+
                 playerHealth.TakeDamage(_enemyBehavior.Damage1);
             }
         }

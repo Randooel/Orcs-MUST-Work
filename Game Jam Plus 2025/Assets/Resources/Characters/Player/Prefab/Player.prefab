@@ -5179,6 +5179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 0
   _maxHealth: 5
+  hit: {fileID: 3733318951133224447, guid: 32ed2e159dcb81a44bd4ce169701a5ec, type: 3}
 --- !u!114 &2015605266434405409
 MonoBehaviour:
   m_ObjectHideFlags: 0

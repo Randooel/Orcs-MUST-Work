@@ -17,6 +17,7 @@ public class PlayerAttacks1 : MonoBehaviour
     [SerializeField] bool _isAnim;
     private Coroutine _currentCoroutine;
 
+
     public int CurrentDamage { get => _currentDamage; set => _currentDamage = value; }
     public float CurrentThrowForce { get => _currentThrowForce; set => _currentThrowForce = value; }
     public bool IsAnim { get => _isAnim; set => _isAnim = value; }

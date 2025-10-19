@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
+using UnityEngine.VFX;
 
 public abstract class EnemyBehavior : MonoBehaviour
 {
@@ -48,6 +49,12 @@ public abstract class EnemyBehavior : MonoBehaviour
 
     private bool _isDuringThrow;
 
+    [Space(10)]
+    #region VFX
+    [SerializeField] protected GameObject hit;
+    [SerializeField] protected GameObject explosion;
+    #endregion
+
 
     public int Damage1 { get => _damage1; set => _damage1 = value; }
     protected int Damage2 { get => damage2; set => damage2 = value; }
@@ -59,7 +66,10 @@ public abstract class EnemyBehavior : MonoBehaviour
         RestoreHealth(_maxHealth);
         SwitchState(State.Idle);
 
-        if(_detectionRange == null)
+        hit.gameObject.SetActive(false);
+        explosion.gameObject.SetActive(false);
+
+        if (_detectionRange == null)
         {
             Debug.Log("Detection Range collider was not found!");
         }
@@ -137,6 +147,13 @@ public abstract class EnemyBehavior : MonoBehaviour
                 HandleTakeDamage(dmg);
 
                 HandleThrown(throwForce, direction);
+
+                hit.gameObject.SetActive(true);
+                DOVirtual.DelayedCall(0.1f, () =>
+                {
+                    hit.gameObject.SetActive(false);
+                });
+                //hit.gameObject.GetComponentInChildren<VisualEffect>().Play();
             }
         }
     }
@@ -158,8 +175,6 @@ public abstract class EnemyBehavior : MonoBehaviour
                 _currentHealth -= 1;
                 enemy._currentHealth -= 1;
                 enemy.SwitchState(State.Chase);
-
-                Debug.Log("enemyHealth: " + enemy._currentHealth);
             }
         }
         if(collision.gameObject.CompareTag("Player"))
@@ -169,6 +184,8 @@ public abstract class EnemyBehavior : MonoBehaviour
             HandleThrown(15f, direction);
 
             var player = collision.gameObject.GetComponent<PlayerHealth>();
+
+            //collision.gameObject.GetComponent<PlayerHealth>().PlayVFX();
 
             player.TakeDamage(-1);
         }
@@ -223,8 +240,6 @@ public abstract class EnemyBehavior : MonoBehaviour
     }
     protected virtual void HandleChase()
     {
-        Debug.Log("CHASE STATE!");
-
         var rand = Random.Range(0, _playerTargets.Length);
 
         _currentTarget = _playerTargets[rand];
@@ -272,6 +287,15 @@ public abstract class EnemyBehavior : MonoBehaviour
 
         var collider = GetComponent<BoxCollider2D>();
         collider.enabled = false;
+
+        explosion.gameObject.SetActive(true);
+        DOVirtual.DelayedCall(0.1f, () =>
+        {
+            explosion.gameObject.SetActive(false);
+        });
+
+        //StartCoroutine(WaitToResetVFX());
+        //explosion.gameObject.GetComponentInChildren<VisualEffect>().Play();
     }
 
     public void ToggleState()
@@ -300,5 +324,13 @@ public abstract class EnemyBehavior : MonoBehaviour
         yield return new WaitForSeconds(_attackRate);
 
         _attackRange.gameObject.SetActive(true);
+    }
+
+    IEnumerator WaitToResetVFX()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        hit.gameObject.SetActive(false);
+        explosion.gameObject.SetActive(false);
     }
 }

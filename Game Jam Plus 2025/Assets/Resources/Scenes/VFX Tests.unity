@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_Hit_v01
       objectReference: {fileID: 0}
+    - target: {fileID: 3953088218040820797, guid: 637a3fcfcef3d1f469fddec951ef984d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5300040210334671594, guid: 637a3fcfcef3d1f469fddec951ef984d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.7
@@ -174,6 +178,10 @@ PrefabInstance:
     - target: {fileID: 6344611517313501655, guid: 637a3fcfcef3d1f469fddec951ef984d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7600005611273606305, guid: 637a3fcfcef3d1f469fddec951ef984d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7600005611273606305, guid: 637a3fcfcef3d1f469fddec951ef984d, type: 3}
       propertyPath: m_SortingOrder
@@ -1698,6 +1706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_HitWrong_v01
       objectReference: {fileID: 0}
+    - target: {fileID: 3733318951133224447, guid: 32ed2e159dcb81a44bd4ce169701a5ec, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4489618174044208338, guid: 32ed2e159dcb81a44bd4ce169701a5ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.92
@@ -1737,6 +1749,10 @@ PrefabInstance:
     - target: {fileID: 4489618174044208338, guid: 32ed2e159dcb81a44bd4ce169701a5ec, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6210243701188050055, guid: 32ed2e159dcb81a44bd4ce169701a5ec, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6210243701188050055, guid: 32ed2e159dcb81a44bd4ce169701a5ec, type: 3}
       propertyPath: m_SortingOrder
@@ -1798,6 +1814,14 @@ PrefabInstance:
     - target: {fileID: 2814450694793325375, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
       propertyPath: m_Name
       value: VFX_Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 2814450694793325375, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731366502902487848, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6731366502902487848, guid: fd2ec5d5a6e04de48bda77486e955b58, type: 3}
       propertyPath: m_SortingOrder

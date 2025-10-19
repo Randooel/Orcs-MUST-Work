@@ -6,6 +6,8 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D _collider2D;
 
+    
+
     void Start()
     {
         if(_collider2D == null)
@@ -23,7 +25,7 @@ public class PlayerCollision : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            // _playerHealth.CurrentHealht -= 1;
+            
         }
     }
 
