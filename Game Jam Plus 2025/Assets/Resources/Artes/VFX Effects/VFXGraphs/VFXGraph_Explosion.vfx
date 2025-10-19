@@ -276,7 +276,7 @@ MonoBehaviour:
     x: 462
     y: -569
     width: 2850
-    height: 2622
+    height: 2524
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4872,7 +4872,7 @@ MonoBehaviour:
       slotIndex: 0
   m_OutputFlowSlot:
   - link: []
-  blendMode: 0
+  blendMode: 1
   cullMode: 0
   zWriteMode: 0
   zTestMode: 0
