@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health Config")]
     [SerializeField] int _currentHealth;
     [SerializeField] int _maxHealth = 5;
+
+    [Header("UI Bars")]
+    [SerializeField] HealthBar _healthBar;
+    [SerializeField] RageBar _rageBar;
+
 
     [Header("VFX")]
     #region VFX
@@ -24,7 +30,9 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         // Set up
+        _healthBar.SetMaxValue(_maxHealth);
         RestoreHealth(_maxHealth);
+
         hit.gameObject.SetActive(false);
 
         // Setting references up
@@ -37,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
         if(heal >=  _maxHealth)
         {
             CurrentHealth = MaxHealth;
+            _healthBar.SetHealth(_maxHealth);
         }
         else
         {
@@ -51,6 +60,7 @@ public class PlayerHealth : MonoBehaviour
         _playerMovement.canMove = false;
 
         CurrentHealth -= damage;
+        _healthBar.SetHealth(CurrentHealth);
 
         if (CurrentHealth <= 0)
         {
