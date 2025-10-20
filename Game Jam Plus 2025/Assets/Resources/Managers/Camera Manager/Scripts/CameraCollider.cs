@@ -12,19 +12,16 @@ public class CameraCollider : MonoBehaviour
     {
         borderCollision = GetComponentInParent<BorderCollision>(); 
         _cameraManager = FindAnyObjectByType<CameraManager>();
-        
-        if(isRay)
-        {
-            _collider.enabled = false;
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Collision!");
         if (isRay)
         {
             if (collision.CompareTag("Enemy"))
             {
+                Debug.Log("Collided with enemy!");
                 _cameraManager.enemyCounter++;
             }
 
