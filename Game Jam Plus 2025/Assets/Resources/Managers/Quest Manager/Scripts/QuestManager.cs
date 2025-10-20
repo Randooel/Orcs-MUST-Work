@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    [SerializeField] string[] nextRoom;
+    public string[] nextRoom;
+    public int currentRoomIndex;
 
     void Start()
     {
@@ -13,8 +14,8 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public void UpdateRoom()
     {
-        
+        currentRoomIndex++;
     }
 }

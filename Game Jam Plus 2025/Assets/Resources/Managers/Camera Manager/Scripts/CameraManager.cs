@@ -1,8 +1,12 @@
 using UnityEngine;
 using DG.Tweening;
+using System;
+using System.Collections;
 
 public class CameraManager : MonoBehaviour
 {
+    private GameManager _gameManager;
+
     [Header("References")]
     BorderCollision _borderCollision;
     [SerializeField] Transform _camera;
@@ -11,11 +15,21 @@ public class CameraManager : MonoBehaviour
     [SerializeField] [Range(10, 50)] float _nextPos = 22f;
     [SerializeField] string _nextDirection;
 
+    [Header("Collider Config")]
+    [SerializeField] BoxCollider2D _cameraViewCollider;
+    [SerializeField] string targetTag = "Enemy";
+
+    public int enemyCounter;
+
     public string NextDirection { get => _nextDirection; set => _nextDirection = value; }
 
     void Start()
     {
         _borderCollision = FindAnyObjectByType<BorderCollision>();
+
+        _gameManager = FindAnyObjectByType<GameManager>();
+
+        SetEnemyCounter();
     }
 
     void Update()
@@ -77,6 +91,8 @@ public class CameraManager : MonoBehaviour
         {
             _camera.position += new Vector3(0f, -_nextPos/2, 0f);
         }
+
+        SetEnemyCounter();
     }
 
     // TEST SCRIPTS
@@ -126,5 +142,26 @@ public class CameraManager : MonoBehaviour
         {
             SetNextDirection("");
         }
+    }
+
+    public void SetEnemyCounter()
+    {
+        _cameraViewCollider.enabled = true;
+        StartCoroutine(WaitToCheckEnemies());
+    }
+
+    public void CheckForEnemies()
+    {
+        if(enemyCounter == 0)
+        {
+            _gameManager.UnlockNextRoom();
+        }
+    }
+
+    // COROUTINES
+    private IEnumerator WaitToCheckEnemies()
+    {
+        yield return new WaitForSeconds(0.5f);
+        CheckForEnemies();
     }
 }

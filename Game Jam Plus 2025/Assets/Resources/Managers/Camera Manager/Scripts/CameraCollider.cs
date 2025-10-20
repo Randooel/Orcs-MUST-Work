@@ -2,20 +2,41 @@ using UnityEngine;
 
 public class CameraCollider : MonoBehaviour
 {
+    private CameraManager _cameraManager;
     private BorderCollision borderCollision;
+
+    [SerializeField] bool isRay;
+    [SerializeField] BoxCollider2D _collider;
 
     private void Start()
     {
-        borderCollision = GetComponentInParent<BorderCollision>();    
+        borderCollision = GetComponentInParent<BorderCollision>(); 
+        _cameraManager = FindAnyObjectByType<CameraManager>();
+        
+        if(isRay)
+        {
+            _collider.enabled = false;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (isRay)
+        {
+            if (collision.CompareTag("Enemy"))
+            {
+                _cameraManager.enemyCounter++;
+                Debug.Log("collided with enemy!");
+            }
+
+            _collider.enabled = false;
+        }
+        else if (collision.CompareTag("Player"))
         {
             borderCollision.ResetColliders();
 
             borderCollision.ActivateNavigation();
         }
+        
     }
 }

@@ -294,6 +294,11 @@ public abstract class EnemyBehavior : MonoBehaviour
             explosion.gameObject.SetActive(false);
         });
 
+        // Checks if there is any enemy leftt on the current room
+        var cameraManager = FindAnyObjectByType<CameraManager>();
+        cameraManager.enemyCounter--;
+        cameraManager.CheckForEnemies();
+
         //StartCoroutine(WaitToResetVFX());
         //explosion.gameObject.GetComponentInChildren<VisualEffect>().Play();
     }
