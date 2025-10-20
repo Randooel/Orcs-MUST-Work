@@ -187,7 +187,7 @@ public abstract class EnemyBehavior : MonoBehaviour
 
             //collision.gameObject.GetComponent<PlayerHealth>().PlayVFX();
 
-            player.TakeDamage(-1);
+            player.TakeDamage(1);
         }
     }
 

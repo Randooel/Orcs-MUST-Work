@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.VFX;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -85,5 +86,11 @@ public class PlayerHealth : MonoBehaviour
         {
             hit.gameObject.SetActive(false);
         });
+    }
+
+    public void ReloadScene()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
     }
 }
