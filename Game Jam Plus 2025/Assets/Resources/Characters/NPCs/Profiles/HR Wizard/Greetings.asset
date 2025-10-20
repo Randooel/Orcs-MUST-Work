@@ -23,6 +23,3 @@ MonoBehaviour:
       - You're an ORC, after all. And as they say, "Orcs MUST work".
       - I'll be waiting for you here. :D
       playerResponses: []
-    - dialogueTag: 
-      npcLines: []
-      playerResponses: []

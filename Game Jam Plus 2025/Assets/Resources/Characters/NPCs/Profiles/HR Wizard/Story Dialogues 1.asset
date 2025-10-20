@@ -22,6 +22,3 @@ MonoBehaviour:
       - "You\u2019d better know who\u2019s in charge around here."
       - Getting along with your coworkers? Hehehe
       playerResponses: []
-    - dialogueTag: 
-      npcLines: []
-      playerResponses: []
