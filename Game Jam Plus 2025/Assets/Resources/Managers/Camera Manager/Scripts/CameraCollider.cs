@@ -26,7 +26,6 @@ public class CameraCollider : MonoBehaviour
             if (collision.CompareTag("Enemy"))
             {
                 _cameraManager.enemyCounter++;
-                Debug.Log("collided with enemy!");
             }
 
             _collider.enabled = false;

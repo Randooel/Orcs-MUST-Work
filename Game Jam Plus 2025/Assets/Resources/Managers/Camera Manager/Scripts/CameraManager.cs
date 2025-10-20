@@ -73,8 +73,6 @@ public class CameraManager : MonoBehaviour
 
     public void NavigateTo(string direction)
     {
-        Debug.Log(direction);
-
         if (direction == "up")
         {
             _camera.position += new Vector3(0f, _nextPos/2, 0f);
