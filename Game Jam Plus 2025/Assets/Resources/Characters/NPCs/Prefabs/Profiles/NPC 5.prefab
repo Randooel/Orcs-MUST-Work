@@ -317,7 +317,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 6590b871fd3ab8145bdadcd2998581ea, type: 3}
-  m_Color: {r: 0.6792453, g: 0.478899, b: 0.26593092, a: 1}
+  m_Color: {r: 0.90243536, g: 0.43454072, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -511,7 +511,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 0fac69d05110722489f4d33f07ed4072, type: 3}
-  m_Color: {r: 0.6981132, g: 0.43758178, b: 0.18770024, a: 1}
+  m_Color: {r: 0.90243536, g: 0.43454072, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -598,7 +598,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 4e70b8d8aa262c84cbf516b8ecab7157, type: 3}
-  m_Color: {r: 0.6226415, g: 0.5317948, b: 0.41411534, a: 1}
+  m_Color: {r: 0.90243536, g: 0.43454072, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -949,7 +949,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6124306447294352755, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
       propertyPath: m_Name
-      value: NPC 4
+      value: NPC 5
       objectReference: {fileID: 0}
     - target: {fileID: 6124306447294352755, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
       propertyPath: m_Layer
@@ -1027,7 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  _dialogueSO: {fileID: 11400000, guid: e64b5afd1699aaa48af716bf6838377f, type: 2}
+  _dialogueSO: {fileID: 11400000, guid: 3798b01beafa94349a11e08ad30bf61d, type: 2}
   _currentEncounter: 0
   _currentDialogueGroup: 0
   _dialogueBox: {fileID: 49914154894649202}

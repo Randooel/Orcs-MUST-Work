@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387a0ce375231a64caa37d81c82895f8, type: 3}
+  m_Name: Goblin Dialogue 2
+  m_EditorClassIdentifier: 
+  encounters:
+  - encounterTag: 
+    dialogueGroups:
+    - dialogueTag: Goblin 2
+      npcLines:
+      - Aw man... the coffee machine was supposed to be here
+      - :(
+      - I'm going to get a 90% pay cut because of this
+      - My kids are going to get hungry next month...
+      playerResponses: []
+    - dialogueTag: 
+      npcLines: []
+      playerResponses: []
