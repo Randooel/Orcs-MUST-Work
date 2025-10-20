@@ -105,6 +105,8 @@ public class DialogueManager : MonoBehaviour
 
         _npcBehavior.OnDialogueEnd();
 
+        _currentLine = 0;
+
         _currentDialogueText = null;
         _currentDialogueBox = null;
 
