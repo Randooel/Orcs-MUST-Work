@@ -18,14 +18,9 @@ public class BorderCollision : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void ActivateNavigation()
     {
-        if(collision.CompareTag("Player"))
-        {
-            ResetColliders();
-
-            _cameraManager.NavigateTo(_cameraManager.NextDirection);
-        }
+        _cameraManager.NavigateTo(_cameraManager.NextDirection);
     }
 
     public void ResetColliders()

@@ -152,8 +152,6 @@ public class PlayerMovement : MonoBehaviour
         var playerAttack1 = GetComponent<PlayerAttacks1>();
 
         playerAttack1.IsAnim = false;
-
-        Debug.Log("Stop Walk");
     }
 
     
