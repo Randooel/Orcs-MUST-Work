@@ -72,6 +72,8 @@ public class DialogueManager : MonoBehaviour
         _textEffect.Refresh();
 
         _textEffect.StartManualEffect("Typewritter");
+
+        _npcBehavior.animator.SetTrigger("speak"); 
     }
 
     public void CheckDialogue()

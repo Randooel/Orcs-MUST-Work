@@ -5,6 +5,7 @@ using EasyTextEffects;
 public class NPCBehavior : MonoBehaviour
 {
     private DialogueManager _dialogueManager;
+    public Animator animator;
 
     [Header("Config")]
     [SerializeField] DialogueSO _dialogueSO;
@@ -28,7 +29,7 @@ public class NPCBehavior : MonoBehaviour
         DisableCamera();
 
         // Setting references up
-
+        animator = GetComponent<Animator>();
         _dialogueManager = FindAnyObjectByType<DialogueManager>();
 
         _dialogueBox.SetActive(false);
