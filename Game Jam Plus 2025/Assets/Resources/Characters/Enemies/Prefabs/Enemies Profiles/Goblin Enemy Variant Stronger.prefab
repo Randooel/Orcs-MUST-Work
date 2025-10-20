@@ -349,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 9196192080309451427}
     - target: {fileID: 5122639965437443967, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: _speed
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5122639965437443967, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: damage2
@@ -369,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 4532167443631747636}
     - target: {fileID: 5122639965437443967, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: _maxHealth
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5122639965437443967, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: m_rigidbody

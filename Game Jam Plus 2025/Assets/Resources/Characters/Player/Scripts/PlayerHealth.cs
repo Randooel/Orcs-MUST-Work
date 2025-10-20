@@ -51,6 +51,7 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             CurrentHealth += heal;
+            _healthBar.SetHealth(CurrentHealth);
         }
     }
 
