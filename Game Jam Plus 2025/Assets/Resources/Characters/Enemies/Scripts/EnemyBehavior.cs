@@ -7,7 +7,8 @@ public abstract class EnemyBehavior : MonoBehaviour
 {
     [Header("References")]
     protected Animator _animator;
-    [SerializeField] protected Transform _parent;
+    [SerializeField] protected Transform _visual;
+    [SerializeField] GameObject _enemycamera;
 
     [Header("Config")]
     [SerializeField] protected State _currentState;
@@ -69,6 +70,8 @@ public abstract class EnemyBehavior : MonoBehaviour
         hit.gameObject.SetActive(false);
         explosion.gameObject.SetActive(false);
 
+        DisableCamera();
+
         if (_detectionRange == null)
         {
             Debug.Log("Detection Range collider was not found!");
@@ -84,7 +87,6 @@ public abstract class EnemyBehavior : MonoBehaviour
 
         // Seting references up
         _animator = GetComponent<Animator>();
-        _parent = GetComponentInParent<Transform>();
 
         _playerTargets = new Transform[4];
 
@@ -98,17 +100,17 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         if (_isChasing)
         {
-            Vector3 direction = (_currentTarget.position - _parent.position).normalized;
+            Vector3 direction = (_currentTarget.position - transform.position).normalized;
 
-            _parent.position += direction * _speed * Time.deltaTime;
+            transform.position += direction * _speed * Time.deltaTime;
 
-            if(_currentTarget.position.x < _parent.position.x)
+            if(_currentTarget.position.x < _visual.position.x)
             {
-                _parent.rotation = Quaternion.Euler(0, 180f, 0);
+                _visual.rotation = Quaternion.Euler(0, 180f, 0);
             }
-            if(_currentTarget.position.x > _parent.position.x)
+            if(_currentTarget.position.x > _visual.position.x)
             {
-                _parent.rotation = Quaternion.Euler(0, 360f, 0);
+                _visual.rotation = Quaternion.Euler(0, 360f, 0);
             }
         }
 
@@ -297,7 +299,8 @@ public abstract class EnemyBehavior : MonoBehaviour
         // Checks if there is any enemy leftt on the current room
         var cameraManager = FindAnyObjectByType<CameraManager>();
         cameraManager.enemyCounter--;
-        cameraManager.CheckForEnemies();
+        cameraManager.enemyBehavior = this;
+        cameraManager.CheckForEnemies(true);
 
         //StartCoroutine(WaitToResetVFX());
         //explosion.gameObject.GetComponentInChildren<VisualEffect>().Play();
@@ -324,6 +327,17 @@ public abstract class EnemyBehavior : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    public void EnableCamera()
+    {
+        _enemycamera.SetActive(true);
+    }
+
+    public void DisableCamera()
+    {
+        _enemycamera.SetActive(false);
+    }
+
+    // COROUTINES
     IEnumerator WaitToAttackAgain()
     {
         yield return new WaitForSeconds(_attackRate);

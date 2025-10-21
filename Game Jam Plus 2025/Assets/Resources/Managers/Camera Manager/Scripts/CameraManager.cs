@@ -20,6 +20,7 @@ public class CameraManager : MonoBehaviour
     [SerializeField] string targetTag = "Enemy";
 
     public int enemyCounter;
+    public EnemyBehavior enemyBehavior;
 
     public string NextDirection { get => _nextDirection; set => _nextDirection = value; }
 
@@ -148,18 +149,40 @@ public class CameraManager : MonoBehaviour
         StartCoroutine(WaitToCheckEnemies());
     }
 
-    public void CheckForEnemies()
+    public void CheckForEnemies(bool wasCalledByEnemy)
     {
         if(enemyCounter == 0)
         {
             _gameManager.UnlockNextRoom();
+
+            if (wasCalledByEnemy)
+            {
+                CleanRoomAnim();
+            }
+            else if(enemyBehavior != null)
+            {
+                enemyBehavior = null;
+            }
         }
+    }
+
+    public void CleanRoomAnim()
+    {
+        Time.timeScale = 0.3f;
+        enemyBehavior.EnableCamera();
+
+        DOVirtual.DelayedCall(1f, () =>
+        {
+            enemyBehavior = null;
+
+            Time.timeScale = 1;
+        });
     }
 
     // COROUTINES
     private IEnumerator WaitToCheckEnemies()
     {
         yield return new WaitForSeconds(0.5f);
-        CheckForEnemies();
+        CheckForEnemies(false);
     }
 }

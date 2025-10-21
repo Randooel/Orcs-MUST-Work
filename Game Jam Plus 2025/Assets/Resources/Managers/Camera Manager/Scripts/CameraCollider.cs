@@ -16,12 +16,10 @@ public class CameraCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision!");
         if (isRay)
         {
             if (collision.CompareTag("Enemy"))
             {
-                Debug.Log("Collided with enemy!");
                 _cameraManager.enemyCounter++;
             }
 

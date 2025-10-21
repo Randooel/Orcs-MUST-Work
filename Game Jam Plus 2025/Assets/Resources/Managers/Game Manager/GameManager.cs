@@ -27,6 +27,6 @@ public class GameManager : MonoBehaviour
 
         _cameraManager.SetNextDirection(nextRoom);
 
-        _questManager.UpdateRoom();
+        _questManager.UpdateRoom(); 
     }
 }
