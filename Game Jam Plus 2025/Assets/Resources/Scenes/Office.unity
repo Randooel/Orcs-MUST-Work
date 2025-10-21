@@ -27739,6 +27739,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4221048777529873436, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4221048777529873436, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6303292925406348687, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
       propertyPath: _maxHealth
       value: 10
@@ -78342,6 +78350,18 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 10.13
       objectReference: {fileID: 0}
+    - target: {fileID: 3711824902293531748, guid: 51ff01adbcce7fc448e9a3ddfa8d98e4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711824902293531748, guid: 51ff01adbcce7fc448e9a3ddfa8d98e4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3711824902293531748, guid: 51ff01adbcce7fc448e9a3ddfa8d98e4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6597401915154548280, guid: 51ff01adbcce7fc448e9a3ddfa8d98e4, type: 3}
       propertyPath: m_Name
       value: Goblin Enemy Variant - Quicker (3)
@@ -80002,7 +80022,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 601595534029397123, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: orthographic size
-      value: 3.87
+      value: 6.3008747
       objectReference: {fileID: 0}
     - target: {fileID: 601595534029397123, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -80018,11 +80038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804421463646464949, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3100014
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 804421463646464949, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -15.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1241361713059838174, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -80453,6 +80473,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 293974543}
     m_Modifications:
+    - target: {fileID: 1428972304700711881, guid: 8865f277ea669994aa324e8a288dc04b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428972304700711881, guid: 8865f277ea669994aa324e8a288dc04b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428972304700711881, guid: 8865f277ea669994aa324e8a288dc04b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2307074516433378696, guid: 8865f277ea669994aa324e8a288dc04b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 73.9

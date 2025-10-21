@@ -168,7 +168,7 @@ public class CameraManager : MonoBehaviour
 
     public void CleanRoomAnim()
     {
-        Time.timeScale = 0.3f;
+        Time.timeScale = 0.35f;
         enemyBehavior.EnableCamera();
 
         DOVirtual.DelayedCall(1f, () =>
