@@ -5,6 +5,7 @@ using DG.Tweening;
 public class PlayerAttacks1 : MonoBehaviour
 {
     private DialogueManager _dialogueManger;
+    private PlayerRage _playerRage;
     
     [Header("Other Scripts & Components References")]
     private PlayerMovement _playerMovement;
@@ -28,6 +29,8 @@ public class PlayerAttacks1 : MonoBehaviour
         {
             _playerMovement = GetComponent<PlayerMovement>();
         }
+        
+        _playerRage = GetComponent<PlayerRage>();
 
         _dialogueManger = FindAnyObjectByType<DialogueManager>();
     }
@@ -79,6 +82,13 @@ public class PlayerAttacks1 : MonoBehaviour
         if(_currentCoroutine != null)
         {
             StopCoroutine(_currentCoroutine);
+        }
+
+        // RAGE
+        if (_playerRage.isOnRage)
+        {
+            CurrentDamage ++;
+            CurrentThrowForce *= 2;
         }
 
         CurrentDamage++;

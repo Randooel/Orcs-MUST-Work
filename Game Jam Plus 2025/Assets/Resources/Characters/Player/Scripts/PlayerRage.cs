@@ -43,7 +43,7 @@ public class PlayerRage : MonoBehaviour
 
     private void RageTimer()
     {
-        CurrentRage -= Time.deltaTime;
+        CurrentRage -= 1 * Time.deltaTime;
         _rageBar.SetRage(CurrentRage);
 
         if (CurrentRage <= 0)

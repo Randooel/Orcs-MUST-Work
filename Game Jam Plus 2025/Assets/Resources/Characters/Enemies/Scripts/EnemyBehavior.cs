@@ -131,6 +131,14 @@ public abstract class EnemyBehavior : MonoBehaviour
     protected void FixedUpdate()
     {
         lastVelocity = m_rigidbody.linearVelocity;
+
+        if(_isDuringThrow)
+        {
+            if(m_rigidbody.linearVelocity.magnitude > 0)
+            {
+                _isDuringThrow = false;
+            }
+        }
     }
 
     // COLLISION AND HEALTH RELETADE FUNCTIONS
@@ -140,6 +148,8 @@ public abstract class EnemyBehavior : MonoBehaviour
         {
             if (collision.transform.parent.TryGetComponent(out PlayerAttacks1 playerAttacks1))
             {
+                _isDuringThrow = true;
+
                 int dmg = collision.GetComponentInParent<PlayerAttacks1>().CurrentDamage;
                 float throwForce = collision.GetComponentInParent<PlayerAttacks1>().CurrentThrowForce;
                 var direction = collision.transform;
@@ -157,7 +167,7 @@ public abstract class EnemyBehavior : MonoBehaviour
                 });
                 //hit.gameObject.GetComponentInChildren<VisualEffect>().Play();
 
-                collision.GetComponentInParent<PlayerRage>().RefreshRage(dmg);
+                collision.GetComponentInParent<PlayerRage>().RefreshRage(dmg /2);
             }
         }
     }
@@ -190,7 +200,16 @@ public abstract class EnemyBehavior : MonoBehaviour
             var player = collision.gameObject.GetComponent<PlayerHealth>();
 
             //collision.gameObject.GetComponent<PlayerHealth>().PlayVFX();
-            player.TakeDamage(1);
+            if(collision.gameObject.GetComponent<PlayerRage>().isOnRage == true && _isDuringThrow)
+            {
+                return;
+            }
+            else
+            {
+                Debug.Log(_isDuringThrow);
+                player.TakeDamage(1);
+            }
+            
         }
     }
 

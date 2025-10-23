@@ -80833,21 +80833,9 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 423362206827821179, guid: f4849b3ac00298c4e8623907b87420e2, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 423362206827821179, guid: f4849b3ac00298c4e8623907b87420e2, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2217491038008159938, guid: f4849b3ac00298c4e8623907b87420e2, type: 3}
       propertyPath: m_Name
       value: Rage Bar
-      objectReference: {fileID: 0}
-    - target: {fileID: 4900900763980245435, guid: f4849b3ac00298c4e8623907b87420e2, type: 3}
-      propertyPath: m_Value
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8244598603042620043, guid: f4849b3ac00298c4e8623907b87420e2, type: 3}
       propertyPath: m_Pivot.x
