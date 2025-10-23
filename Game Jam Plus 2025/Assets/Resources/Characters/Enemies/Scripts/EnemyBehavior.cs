@@ -156,6 +156,8 @@ public abstract class EnemyBehavior : MonoBehaviour
                     hit.gameObject.SetActive(false);
                 });
                 //hit.gameObject.GetComponentInChildren<VisualEffect>().Play();
+
+                collision.GetComponentInParent<PlayerRage>().RefreshRage(dmg);
             }
         }
     }
@@ -188,7 +190,6 @@ public abstract class EnemyBehavior : MonoBehaviour
             var player = collision.gameObject.GetComponent<PlayerHealth>();
 
             //collision.gameObject.GetComponent<PlayerHealth>().PlayVFX();
-
             player.TakeDamage(1);
         }
     }

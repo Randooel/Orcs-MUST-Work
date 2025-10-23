@@ -9,10 +9,12 @@ public class RageBar : MonoBehaviour
 
     public void Update()
     {
+        /*
         if(isOnRage)
         {
             OnRage();
         }
+        */
     }
 
     public void SetMaxValue(int newMaxValue)
@@ -20,9 +22,9 @@ public class RageBar : MonoBehaviour
         rageSlider.maxValue = newMaxValue;
     }
 
-    public void SetRage(float currentHealth)
+    public void SetRage(float currentRage)
     {
-        rageSlider.value = currentHealth;
+        rageSlider.value = currentRage;
     }
 
     public void OnRage()

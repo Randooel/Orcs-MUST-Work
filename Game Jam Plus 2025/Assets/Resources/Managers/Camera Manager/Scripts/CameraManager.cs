@@ -17,7 +17,6 @@ public class CameraManager : MonoBehaviour
 
     [Header("Collider Config")]
     [SerializeField] BoxCollider2D _cameraViewCollider;
-    [SerializeField] string targetTag = "Enemy";
 
     public int enemyCounter;
     public EnemyBehavior enemyBehavior;

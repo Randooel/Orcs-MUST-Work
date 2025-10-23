@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("Other Components References")]
     private Animator _animator;
     private PlayerMovement _playerMovement;
+    private PlayerRage _playerRage;
 
     [Header("Health Config")]
     [SerializeField] int _currentHealth;
@@ -17,7 +18,6 @@ public class PlayerHealth : MonoBehaviour
 
     [Header("UI Bars")]
     [SerializeField] HealthBar _healthBar;
-    [SerializeField] RageBar _rageBar;
 
 
     [Header("VFX")]
@@ -37,6 +37,7 @@ public class PlayerHealth : MonoBehaviour
         hit.gameObject.SetActive(false);
 
         // Setting references up
+        _playerRage = GetComponent<PlayerRage>();
         _playerMovement = GetComponent<PlayerMovement>();
         _animator = _playerMovement.animator;
     }
@@ -68,6 +69,8 @@ public class PlayerHealth : MonoBehaviour
         {
             Death();
         }
+
+        _playerRage.RefreshRage(damage);
     }
 
     public void Death()
@@ -89,6 +92,7 @@ public class PlayerHealth : MonoBehaviour
         });
     }
 
+    // Called by an event in the "Death" animation clip
     public void ReloadScene()
     {
         Scene currentScene = SceneManager.GetActiveScene();

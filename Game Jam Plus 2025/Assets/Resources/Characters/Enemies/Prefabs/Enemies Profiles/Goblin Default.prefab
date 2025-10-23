@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4221048777529873436
 Transform:
   m_ObjectHideFlags: 0
@@ -60,7 +60,7 @@ Transform:
   m_GameObject: {fileID: 9016246169987724793}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6700001, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 7666272406409726039}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -252,11 +252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3846467313621240465, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.75
+      value: 7.92
       objectReference: {fileID: 0}
     - target: {fileID: 3846467313621240465, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.53
+      value: 14.09
       objectReference: {fileID: 0}
     - target: {fileID: 3846467313621240465, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: m_LocalPosition.z
