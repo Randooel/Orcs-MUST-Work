@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     protected Vector2 particleStartPos;
     #endregion
 
+    public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
+
     void Start()
     {
         // This script setup
@@ -98,12 +100,12 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isWalking", false);
         }
         
-        transform.position += direction.normalized * _moveSpeed * Time.deltaTime;
+        transform.position += direction.normalized * MoveSpeed * Time.deltaTime;
     }
 
     private void ChangeMovement(float value)
     {
-        _moveSpeed = value;
+        MoveSpeed = value;
     }
 
     private void StartDustParticles()
