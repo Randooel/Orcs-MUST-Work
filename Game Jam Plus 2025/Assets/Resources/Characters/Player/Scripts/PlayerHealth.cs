@@ -70,7 +70,10 @@ public class PlayerHealth : MonoBehaviour
             Death();
         }
 
-        _playerRage.RefreshRage(damage);
+        // Decrease Combo
+        ComboManager.OnHit?.Invoke(false);
+
+        _playerRage.RefreshRage(-damage);
     }
 
     public void Death()

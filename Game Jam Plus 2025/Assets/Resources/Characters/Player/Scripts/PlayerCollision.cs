@@ -23,10 +23,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
-        {
-            
-        }
+        
     }
 
     // Use this function to activate or deactivate the collider. Since its "public", other scripts can use it.

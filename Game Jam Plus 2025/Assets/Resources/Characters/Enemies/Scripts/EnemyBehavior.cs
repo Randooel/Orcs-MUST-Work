@@ -115,6 +115,7 @@ public abstract class EnemyBehavior : MonoBehaviour
         }
 
         // DEBUG SCRIPTS
+        /*
         if (Input.GetKeyDown(KeyCode.F))
         {
             if(_currentState != State.Chase)
@@ -126,6 +127,7 @@ public abstract class EnemyBehavior : MonoBehaviour
                 SwitchState(State.Idle);
             }
         }
+        */
     }
 
     protected void FixedUpdate()
@@ -167,6 +169,9 @@ public abstract class EnemyBehavior : MonoBehaviour
                 });
                 //hit.gameObject.GetComponentInChildren<VisualEffect>().Play();
 
+                // Combo Increase
+                ComboManager.OnHit?.Invoke(true);
+
                 collision.GetComponentInParent<PlayerRage>().RefreshRage(dmg /2);
             }
         }
@@ -191,6 +196,7 @@ public abstract class EnemyBehavior : MonoBehaviour
                 enemy.SwitchState(State.Chase);
             }
         }
+        /*
         if(collision.gameObject.CompareTag("Player"))
         {
             var direction = collision.transform;
@@ -209,8 +215,8 @@ public abstract class EnemyBehavior : MonoBehaviour
                 Debug.Log(_isDuringThrow);
                 player.TakeDamage(1);
             }
-            
         }
+        */
     }
 
     protected void RestoreHealth(int heal)

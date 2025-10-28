@@ -36,7 +36,7 @@ public class CameraManager : MonoBehaviour
     {
         //Debug Functions
         //TestNavigateTo();
-        TestSetNextDirection();
+        //TestSetNextDirection();
     }
 
     public void SetNextDirection(string direction)
