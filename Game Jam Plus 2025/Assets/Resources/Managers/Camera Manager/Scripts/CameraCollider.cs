@@ -20,7 +20,12 @@ public class CameraCollider : MonoBehaviour
         {
             if (collision.CompareTag("Enemy"))
             {
-                _cameraManager.enemyCounter++;
+                var enemy = collision.GetComponent<EnemyBehavior>();
+
+                if(enemy.CurrentState != EnemyBehavior.State.Death)
+                {
+                    _cameraManager.enemyCounter++;
+                }
             }
 
             _collider.enabled = false;

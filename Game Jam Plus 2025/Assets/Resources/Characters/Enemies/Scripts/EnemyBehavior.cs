@@ -11,8 +11,8 @@ public abstract class EnemyBehavior : MonoBehaviour
     [SerializeField] GameObject _enemycamera;
 
     [Header("Config")]
-    [SerializeField] protected State _currentState;
-    protected enum State
+    [SerializeField] private State _currentState;
+    public enum State
     {
         Idle,
         Chase,
@@ -60,6 +60,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     public int Damage1 { get => _damage1; set => _damage1 = value; }
     protected int Damage2 { get => damage2; set => damage2 = value; }
     protected int Damage3 { get => damage3; set => damage3 = value; }
+    public State CurrentState { get => _currentState; set => _currentState = value; }
 
     protected virtual void Start()
     {
@@ -148,31 +149,34 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         if (collision.CompareTag("Arm"))
         {
-            if (collision.transform.parent.TryGetComponent(out PlayerAttacks1 playerAttacks1))
+            if(CurrentState != State.Death)
             {
-                _isDuringThrow = true;
-
-                int dmg = collision.GetComponentInParent<PlayerAttacks1>().CurrentDamage;
-                float throwForce = collision.GetComponentInParent<PlayerAttacks1>().CurrentThrowForce;
-                var direction = collision.transform;
-
-                _isDuringThrow = true;
-
-                HandleTakeDamage(dmg);
-
-                HandleThrown(throwForce, direction);
-
-                hit.gameObject.SetActive(true);
-                DOVirtual.DelayedCall(0.1f, () =>
+                if (collision.transform.parent.TryGetComponent(out PlayerAttacks1 playerAttacks1))
                 {
-                    hit.gameObject.SetActive(false);
-                });
-                //hit.gameObject.GetComponentInChildren<VisualEffect>().Play();
+                    _isDuringThrow = true;
 
-                // Combo Increase
-                ComboManager.OnHit?.Invoke(true);
+                    int dmg = collision.GetComponentInParent<PlayerAttacks1>().CurrentDamage;
+                    float throwForce = collision.GetComponentInParent<PlayerAttacks1>().CurrentThrowForce;
+                    var direction = collision.transform;
 
-                collision.GetComponentInParent<PlayerRage>().RefreshRage(dmg /2);
+                    _isDuringThrow = true;
+
+                    HandleTakeDamage(dmg);
+
+                    HandleThrown(throwForce, direction);
+
+                    hit.gameObject.SetActive(true);
+                    DOVirtual.DelayedCall(0.1f, () =>
+                    {
+                        hit.gameObject.SetActive(false);
+                    });
+                    //hit.gameObject.GetComponentInChildren<VisualEffect>().Play();
+
+                    // Combo Increase
+                    ComboManager.OnHit?.Invoke(true);
+
+                    collision.GetComponentInParent<PlayerRage>().RefreshRage(dmg / 2);
+                }
             }
         }
     }
@@ -236,7 +240,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         _isChasing = false;
 
-        _currentState = nextState;
+        CurrentState = nextState;
 
         switch(nextState)
         {

@@ -70,11 +70,20 @@ public class PlayerAttacks1 : MonoBehaviour
         else if (_hitCounter == 2)
         {
             _hitCounter++;
-            CurrentThrowForce =  0 /*50f*/;
+            CurrentThrowForce = 5f;
 
             StopCoroutine(WaitToResetHitCounter());
 
             _playerMovement.animator.SetTrigger("quick attack 2");
+        }
+        else if (_hitCounter == 3)
+        {
+            _hitCounter++;
+            CurrentThrowForce = 50f;
+
+            StopCoroutine(WaitToResetHitCounter());
+
+            _playerMovement.animator.SetTrigger("quick attack 3");
         }
 
         IsAnim = true;
@@ -95,7 +104,7 @@ public class PlayerAttacks1 : MonoBehaviour
         //CurrentThrowForce++;
         _currentCoroutine = StartCoroutine(WaitToResetHitCounter());
 
-        ResetHitCounter(3);
+        ResetHitCounter(4);
     }
 
     public void AttackSomething()

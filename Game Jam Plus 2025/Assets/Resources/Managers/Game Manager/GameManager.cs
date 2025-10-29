@@ -6,8 +6,6 @@ public class GameManager : MonoBehaviour
     CameraManager _cameraManager;
     QuestManager _questManager;
 
-    private bool hasEnemy;
-
     void Start()
     {
         _cameraManager = FindAnyObjectByType<CameraManager>();
