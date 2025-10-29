@@ -45,7 +45,7 @@ public class ComboManager : MonoBehaviour
             StopCoroutine(_currentCoroutine);
         }
         
-        DOTween.KillAll(_comboText.transform);
+        DOTween.Kill(_comboText.transform);
 
         DOResetTilt(0);
 
