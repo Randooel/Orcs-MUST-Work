@@ -72,11 +72,6 @@ public class PlayerMovement : MonoBehaviour
                 //Jump();
             }
         }
-
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            _isSuperArmorActive = !_isSuperArmorActive;
-        }
     }
 
     // Movement and jump functions
@@ -122,8 +117,16 @@ public class PlayerMovement : MonoBehaviour
             dustParticles.transform.rotation = Quaternion.Euler(0,0,0); 
         }
 
+        // Stop moving instantly when no key is held
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
+            Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+        {
+            direction = Vector3.zero;
+            animator.SetBool("isWalking", false);
+        }
+
         // Handle animations
-        if(direction != Vector3.zero)
+        if (direction != Vector3.zero)
         {
             animator.SetBool("isWalking", true);
         }

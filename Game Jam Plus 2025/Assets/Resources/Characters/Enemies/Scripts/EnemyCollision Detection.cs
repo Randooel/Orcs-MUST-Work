@@ -27,7 +27,6 @@ public class EnemyCollisionDetection : MonoBehaviour
 
             var pMove = collision.GetComponent<PlayerMovement>();
             var isInvincible = pMove.IsInvincible;
-            var isSuperArmor = pMove.IsSuperArmorActive;
 
             if (!isAttackCollider)
             {
@@ -38,11 +37,7 @@ public class EnemyCollisionDetection : MonoBehaviour
                 var playerHealth = collision.GetComponent<PlayerHealth>();
 
                 playerHealth.PlayVFX();
-
-                if(!isSuperArmor)
-                {
-                    playerHealth.TakeDamage(_enemyBehavior.Damage1);
-                }
+                playerHealth.TakeDamage(_enemyBehavior.Damage1);
             }
         }
     }

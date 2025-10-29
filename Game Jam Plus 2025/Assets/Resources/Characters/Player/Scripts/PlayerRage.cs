@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 
+using DG.Tweening;
+
 public class PlayerRage : MonoBehaviour
 {
     [Header("Rage Stats")]
@@ -8,6 +10,7 @@ public class PlayerRage : MonoBehaviour
     [SerializeField] float punchSpeed;
     [Space(5)]
     [SerializeField] float throwForceMultiplier;
+    [SerializeField] Vector2 _sizeDuringRage = new Vector2(1.25f, 1.25f);
 
     [Header("Rage Bar Config")]
     public bool isOnRage;
@@ -35,23 +38,28 @@ public class PlayerRage : MonoBehaviour
 
     void Update()
     {
+        // Runs timer to decrease current rage
         if(isOnRage)
         {
             RageTimer();
         }
     }
 
+    // This time is meant to control the duration of the rage mode
     private void RageTimer()
     {
-        CurrentRage -= 1 * Time.deltaTime;
+        // To increase or decrease the rage mode time, just change the number in the code down bellow
+        CurrentRage -= 2 * Time.deltaTime;
         _rageBar.SetRage(CurrentRage);
 
+        // Deactivates rage if it is equal or below 0
         if (CurrentRage <= 0)
         {
             DeactivateRage();
         }
     }
 
+    // Updates the Rage Bar's value and, if it is enough to activate rage, it activates it
     public void RefreshRage(float rageValue)
     {
         CurrentRage += rageValue;
@@ -67,6 +75,14 @@ public class PlayerRage : MonoBehaviour
     {
         isOnRage = true;
 
+        // Activates super armor
+        var pMove = GetComponent<PlayerMovement>();
+        pMove.IsSuperArmorActive = true;
+
+        // Scale player up
+        transform.DOScale(_sizeDuringRage, 0.25f).SetEase(Ease.OutSine);
+
+        // Update rage and rage bar
         CurrentRage = _maxRage;
         _rageBar.SetRage(CurrentRage);
     }
@@ -75,6 +91,14 @@ public class PlayerRage : MonoBehaviour
     {
         isOnRage = false;
 
+        // Deactivates super armor
+        var pMove = GetComponent<PlayerMovement>();
+        pMove.IsSuperArmorActive = true;
+
+        // Scale player down
+        transform.DOScale(Vector3.one, 0.25f).SetEase(Ease.OutSine);
+
+        // Reset rage and rage bar
         CurrentRage = 0;
         _rageBar.SetRage(CurrentRage);
     }

@@ -93,14 +93,15 @@ public class PlayerAttacks1 : MonoBehaviour
             StopCoroutine(_currentCoroutine);
         }
 
+        CurrentDamage++;
+
         // RAGE
         if (_playerRage.isOnRage)
         {
-            CurrentDamage ++;
+            CurrentDamage *= 2;
             CurrentThrowForce *= 2;
         }
 
-        CurrentDamage++;
         //CurrentThrowForce++;
         _currentCoroutine = StartCoroutine(WaitToResetHitCounter());
 

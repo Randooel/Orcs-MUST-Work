@@ -58,7 +58,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        _animator.SetTrigger("takeDamage");
+        if (!_playerMovement.IsSuperArmorActive)
+        {
+            _animator.SetTrigger("takeDamage");
+        }
 
         _playerMovement.canMove = false;
 

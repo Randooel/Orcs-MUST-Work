@@ -161,8 +161,14 @@ public abstract class EnemyBehavior : MonoBehaviour
 
                     _isDuringThrow = true;
 
-                    HandleTakeDamage(dmg);
+                    // Handles rage increase during and outside of rage
+                    var pRage = collision.GetComponentInParent<PlayerRage>();
+                    if(pRage.isOnRage == false)
+                    {
+                        pRage.RefreshRage(dmg);
+                    }
 
+                        HandleTakeDamage(dmg);
                     HandleThrown(throwForce, direction);
 
                     hit.gameObject.SetActive(true);
@@ -174,8 +180,6 @@ public abstract class EnemyBehavior : MonoBehaviour
 
                     // Combo Increase
                     ComboManager.OnHit?.Invoke(true);
-
-                    collision.GetComponentInParent<PlayerRage>().RefreshRage(dmg / 2);
                 }
             }
         }

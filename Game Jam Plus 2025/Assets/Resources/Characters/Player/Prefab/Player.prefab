@@ -5108,8 +5108,9 @@ MonoBehaviour:
   punchMultiplier: 2
   punchSpeed: 2
   throwForceMultiplier: 2
+  _sizeDuringRage: {x: 1.5, y: 1.5}
   isOnRage: 0
-  _currentRage: 0
+  _currentRage: 9
   _maxRage: 10
   _rageBar: {fileID: 0}
 --- !u!114 &2015605266434405409
@@ -5130,7 +5131,8 @@ MonoBehaviour:
   canMove: 0
   _moveSpeed: 6
   _dodgeForce: 75
-  _orcVisual: {fileID: 8446433672488563099}
+  lastVelocity: {x: 0, y: 0}
+  orcVisual: {fileID: 8446433672488563099}
   _shadow: {fileID: 8360924074858381093}
   dustParticles: {fileID: 2189982088663751497}
   rigidBody: {fileID: 0}
