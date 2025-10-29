@@ -72,6 +72,11 @@ public class PlayerMovement : MonoBehaviour
                 //Jump();
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            _isSuperArmorActive = !_isSuperArmorActive;
+        }
     }
 
     // Movement and jump functions
