@@ -313,8 +313,10 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         _animator.SetTrigger("death");
 
+        /*
         var collider = GetComponent<BoxCollider2D>();
         collider.enabled = false;
+        */
 
         explosion.gameObject.SetActive(true);
         DOVirtual.DelayedCall(0.1f, () =>

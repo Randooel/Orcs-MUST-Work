@@ -12,6 +12,8 @@ public class ComboManager : MonoBehaviour
 
     public static Action<bool> OnHit;
 
+    private Coroutine _currentCoroutine;
+
     [Header("UI References")]
     [SerializeField] TextMeshProUGUI _comboText;
 
@@ -38,8 +40,12 @@ public class ComboManager : MonoBehaviour
     // COMBO COUNTER RELATED
     public void RefreshCombo(bool shouldIncrease)
     {
-        StopCoroutine("WaitToResetCounter");
-        DOTween.KillAll();
+        if(_currentCoroutine != null)
+        {
+            StopCoroutine(_currentCoroutine);
+        }
+        
+        DOTween.KillAll(_comboText.transform);
 
         DOResetTilt(0);
 
@@ -57,7 +63,7 @@ public class ComboManager : MonoBehaviour
             ResetComboCounter();
         }
 
-        StartCoroutine(WaitToResetCounter(3f));
+        _currentCoroutine = StartCoroutine(WaitToResetCounter(3f));
     }
 
     private void ResetComboCounter()

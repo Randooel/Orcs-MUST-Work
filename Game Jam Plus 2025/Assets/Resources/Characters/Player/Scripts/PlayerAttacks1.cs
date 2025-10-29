@@ -50,7 +50,7 @@ public class PlayerAttacks1 : MonoBehaviour
         if (_hitCounter == 0)
         {
             _hitCounter++;
-            CurrentThrowForce = 5f;
+            CurrentThrowForce = 0f;
 
             StopCoroutine(WaitToResetHitCounter());
 
@@ -61,7 +61,7 @@ public class PlayerAttacks1 : MonoBehaviour
         else if (_hitCounter == 1)
         {
             _hitCounter++;
-            CurrentThrowForce = 10f;
+            CurrentThrowForce = 0f;
 
             StopCoroutine(WaitToResetHitCounter());
 
