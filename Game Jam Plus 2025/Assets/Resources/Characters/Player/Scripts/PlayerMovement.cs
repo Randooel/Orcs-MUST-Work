@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Walk Config")]
     public bool canMove;
-    [SerializeField] [Range(1, 10)] float _moveSpeed = 6;
+    [SerializeField] [Range(1, 20)] float _moveSpeed = 6;
 
     [Header("Dodge Config")]
     [SerializeField] float _dodgeForce = 50;
@@ -78,6 +78,15 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector3 direction = Vector3.zero;
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            MoveSpeed = 12f;
+        }
+        if(Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            MoveSpeed = 6f;
+        }
 
         if (Input.GetKey(KeyCode.W))
         {
