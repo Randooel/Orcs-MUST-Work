@@ -5110,7 +5110,7 @@ MonoBehaviour:
   throwForceMultiplier: 2
   isOnRage: 0
   _currentRage: 0
-  _maxRage: 5
+  _maxRage: 10
   _rageBar: {fileID: 0}
 --- !u!114 &2015605266434405409
 MonoBehaviour:
@@ -5125,8 +5125,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5823394783947911696}
+  _isInvincible: 0
+  _isSuperArmorActive: 0
   canMove: 0
   _moveSpeed: 6
+  _dodgeForce: 75
   _orcVisual: {fileID: 8446433672488563099}
   _shadow: {fileID: 8360924074858381093}
   dustParticles: {fileID: 2189982088663751497}
@@ -5220,7 +5223,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 100
+  m_LinearDamping: 10
   m_AngularDamping: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: af155a1c148616f45838f0c814281075, type: 2}

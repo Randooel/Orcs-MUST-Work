@@ -6,8 +6,6 @@ public class PlayerCollision : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D _collider2D;
 
-    
-
     void Start()
     {
         if(_collider2D == null)
@@ -23,7 +21,17 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if(collision.gameObject.CompareTag("Wall"))
+        {
+            Vector2 normal = collision.contacts[0].normal;
+
+            var rb = GetComponent<Rigidbody2D>();
+            var pMove = GetComponent<PlayerMovement>();
+
+            rb.linearVelocity = Vector2.Reflect(pMove.LastVelocity, normal) * pMove.BounceFactor;
+
+            pMove.orcVisual.Rotate(0f, 180f, 0f);
+        }
     }
 
     // Use this function to activate or deactivate the collider. Since its "public", other scripts can use it.
@@ -41,6 +49,9 @@ public class PlayerCollision : MonoBehaviour
     public void DeactivateCollider()
     {
         _collider2D.enabled = false;
+
+        var pAttack = GetComponent<PlayerAttacks1>();
+        pAttack.CurrentThrowForce = 0f;
     }
 
     // COROUTINES

@@ -28597,6 +28597,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7684673458567951263, guid: 2a7bea0abec5af94ebcfc1889dcd6558, type: 3}
   m_PrefabInstance: {fileID: 903503957}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &924748449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8446433672488563099, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+  m_PrefabInstance: {fileID: 1291511173322717898}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &931487839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80110,6 +80115,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1737130058}
     m_Modifications:
+    - target: {fileID: 2015605266434405409, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: orcVisual
+      value: 
+      objectReference: {fileID: 924748449}
     - target: {fileID: 2573253396607429432, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -80118,10 +80127,6 @@ PrefabInstance:
       propertyPath: _healthBar
       value: 
       objectReference: {fileID: 1925656782}
-    - target: {fileID: 7582415873810937562, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
-      propertyPath: _maxRage
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7582415873810937562, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: _rageBar
       value: 
@@ -80516,15 +80521,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 804421463646464949, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.75
+      value: 40.03
       objectReference: {fileID: 0}
     - target: {fileID: 804421463646464949, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.200001
+      value: 38.65
       objectReference: {fileID: 0}
     - target: {fileID: 804421463646464949, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1241361713059838174, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: m_LocalPosition.x

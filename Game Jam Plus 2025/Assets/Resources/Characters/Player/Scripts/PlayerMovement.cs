@@ -11,12 +11,22 @@ public class PlayerMovement : MonoBehaviour
     [Header("Other Scripts & Components References")]
     public Animator animator;
 
+    [Header("Status")]
+    [SerializeField] bool _isInvincible;
+    [SerializeField] bool _isSuperArmorActive;
+
     [Header("Walk Config")]
     public bool canMove;
     [SerializeField] [Range(1, 10)] float _moveSpeed = 6;
 
-    [Header("Jump is Handled as a animation")]
-    [SerializeField] Transform _orcVisual;
+    [Header("Dodge Config")]
+    [SerializeField] float _dodgeForce = 50;
+    [SerializeField] Vector2 lastVelocity;
+    float bounceFactor = 1.2f;
+
+    [Space(10)]
+    public Transform orcVisual;
+    private Rigidbody2D _rb;
 
     [Header("Shadow Config")]
     [SerializeField] GameObject _shadow;
@@ -28,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
     #endregion
 
     public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
+    public bool IsInvincible { get => _isInvincible; set => _isInvincible = value; }
+    public bool IsSuperArmorActive { get => _isSuperArmorActive; set => _isSuperArmorActive = value; }
+    public Vector2 LastVelocity { get => lastVelocity; set => lastVelocity = value; }
+    public float BounceFactor { get => bounceFactor; set => bounceFactor = value; }
 
     void Start()
     {
@@ -38,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         _dialogueManager = FindAnyObjectByType<DialogueManager>();
 
+        _rb = GetComponent<Rigidbody2D>();
+
         particleStartPos = dustParticles.transform.localPosition;
     }
 
@@ -45,12 +61,15 @@ public class PlayerMovement : MonoBehaviour
     {
         StartDustParticles();
 
+        LastVelocity = _rb.linearVelocity;
+
         if(canMove)
         {
             Move();
             if(Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space))
             {
-                Jump();
+                DodgeAttack();
+                //Jump();
             }
         }
     }
@@ -70,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.A))
         {
-            _orcVisual.rotation = Quaternion.Euler(0, 180f, 0);
+            orcVisual.rotation = Quaternion.Euler(0, 180f, 0);
 
             direction += Vector3.left;
             
@@ -82,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            _orcVisual.rotation = Quaternion.Euler(0, 360f, 0);
+            orcVisual.rotation = Quaternion.Euler(0, 360f, 0);
 
             direction += Vector3.right;
             dustParticles.transform.localPosition = particleStartPos;
@@ -93,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
         if(direction != Vector3.zero)
         {
             animator.SetBool("isWalking", true);
-            
         }
         else
         {
@@ -118,8 +136,6 @@ public class PlayerMovement : MonoBehaviour
         {
             dustParticles.Stop();
         }
-
-
     }
 
     private void Jump()
@@ -131,6 +147,30 @@ public class PlayerMovement : MonoBehaviour
         //_orcVisual.DOLocalMove(new Vector3(0, _jumpHeight, 0), _jumpDuration).SetLoops(2, LoopType.Yoyo).SetEase(Ease.OutSine);
     }
 
+    private void DodgeAttack()
+    {
+        ActivateInvincibility();
+
+        animator.SetTrigger("dodge attack");
+
+        var direction = orcVisual.right;
+
+        _rb.AddForce(direction * _dodgeForce, ForceMode2D.Impulse);
+
+        var pAttack = GetComponent<PlayerAttacks1>();
+        pAttack.CurrentThrowForce = 30f;
+    }
+
+    // Both called by animator's animation event
+    public void ActivateInvincibility()
+    {
+        IsInvincible = true;
+    }
+    public void DeactivateInvincibility()
+    {
+        IsInvincible = false;
+    }
+
     // Use these functions to make other scripts control temporarily the player's movement and jump respectively
     public void DOMoveSomewhere(Vector3 npcPos, Vector3 finalPos, float duration)
     {
@@ -138,9 +178,9 @@ public class PlayerMovement : MonoBehaviour
 
         transform.DOLocalMove(finalPos, duration).OnComplete(() =>
         {
-            var direction = _orcVisual.position - npcPos;
+            var direction = orcVisual.position - npcPos;
 
-            _orcVisual.transform.DOLocalRotate(direction, 0.1f);
+            orcVisual.transform.DOLocalRotate(direction, 0.1f);
         });
     }
 
