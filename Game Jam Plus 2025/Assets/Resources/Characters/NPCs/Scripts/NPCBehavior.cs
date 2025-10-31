@@ -51,7 +51,7 @@ public class NPCBehavior : MonoBehaviour
             _dialogueBox.SetActive(true);
             EnableCamera();
 
-            _currentPlayerMovement.DOMoveSomewhere(transform.position, _playerPosition.position, 0.5f);
+            _currentPlayerMovement.DOMoveToNPC(transform.position, _playerPosition.position, 0.5f);
 
             _dialogueManager.SetDialogue(this, _dialogueSO, _currentDialogueGroup, _dialogueBox, _dialogueText);
         }

@@ -165,7 +165,7 @@ public abstract class EnemyBehavior : MonoBehaviour
                     var pRage = collision.GetComponentInParent<PlayerRage>();
                     if(pRage.isOnRage == false)
                     {
-                        pRage.RefreshRage(dmg);
+                        pRage.RefreshRage(1 /*dmg*/);
                     }
 
                         HandleTakeDamage(dmg);

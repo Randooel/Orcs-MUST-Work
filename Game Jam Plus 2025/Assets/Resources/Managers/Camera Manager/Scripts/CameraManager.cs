@@ -13,6 +13,7 @@ public class CameraManager : MonoBehaviour
 
     [Header("Config")]
     [SerializeField] [Range(10, 50)] float _nextPos = 22f;
+    [SerializeField] float _aditionalVertcialDistance = 3f;
     [SerializeField] string _nextDirection;
 
     [Header("Collider Config")]
@@ -75,7 +76,14 @@ public class CameraManager : MonoBehaviour
     {
         if (direction == "up")
         {
-            _camera.position += new Vector3(0f, _nextPos/2, 0f);
+            // Moves player to the next location. Without this code the camera will move faster than the player
+            // This will result in the player being trapped in the same room, with no means to advance
+            var pMove = FindAnyObjectByType<PlayerMovement>();
+            var nxtPos = pMove.gameObject.transform.position;
+            pMove.DOMoveSomewhere(new Vector3(nxtPos.x, nxtPos.y + 1, 0), 0);
+
+            // Updates camera position
+            _camera.position += new Vector3(0f, (_nextPos / 2 + _aditionalVertcialDistance), 0f);
         }
         else if (direction == "left")
         {
@@ -87,7 +95,11 @@ public class CameraManager : MonoBehaviour
         }
         else if (direction == "down")
         {
-            _camera.position += new Vector3(0f, -_nextPos/2, 0f);
+            var pMove = FindAnyObjectByType<PlayerMovement>();
+            var nxtPos = pMove.gameObject.transform.position;
+            pMove.DOMoveSomewhere(new Vector3(nxtPos.x, nxtPos.y - 1, 0), 0);
+
+            _camera.position += new Vector3(0f, -(_nextPos/2 + _aditionalVertcialDistance), 0f);
         }
 
         SetEnemyCounter();
