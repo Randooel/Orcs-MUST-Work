@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Enemy
   - Item
+  - Worker
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - NPC
   - Camera
   - Item
-  - 
+  - Worker
   - 
   - 
   - 
