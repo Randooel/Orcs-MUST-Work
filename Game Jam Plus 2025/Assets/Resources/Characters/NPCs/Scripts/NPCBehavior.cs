@@ -33,6 +33,10 @@ public class NPCBehavior : MonoBehaviour
         _dialogueManager = FindAnyObjectByType<DialogueManager>();
 
         _dialogueBox.SetActive(false);
+
+        // Changing the dialogue's text Order in Layer
+        var renderer = _dialogueText.gameObject.GetComponent<Renderer>();
+        renderer.sortingOrder = 16;
     }
 
     void Update()
@@ -64,6 +68,9 @@ public class NPCBehavior : MonoBehaviour
 
         DisableCamera();
 
+        ResetAllTriggers();
+        animator.Play("Idle");
+
         _dialogueBox.SetActive(false);
 
         //_currentEncounter++;
@@ -77,5 +84,17 @@ public class NPCBehavior : MonoBehaviour
     public void DisableCamera()
     {
         _npcCamera.SetActive(false);
+    }
+
+    // ANIMATION
+    private void ResetAllTriggers()
+    {
+        foreach (var param in animator.parameters)
+        {
+            if (param.type == AnimatorControllerParameterType.Trigger)
+            {
+                animator.ResetTrigger(param.name);
+            }
+        }
     }
 }

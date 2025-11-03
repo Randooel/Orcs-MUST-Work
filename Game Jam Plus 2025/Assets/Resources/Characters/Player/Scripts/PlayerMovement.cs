@@ -193,11 +193,25 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = false;
 
+        animator.SetBool("isWalking", true);
         transform.DOLocalMove(finalPos, duration).OnComplete(() =>
         {
-            var direction = orcVisual.position - npcPos;
+            var direction = npcPos.x - finalPos.x;
 
-            orcVisual.transform.DOLocalRotate(direction, 0.1f);
+            if(direction > 0)
+            {
+                orcVisual.transform.DOLocalRotate(Vector3.zero, 0.1f);
+            }
+            if(direction < 0)
+            {
+                orcVisual.transform.DOLocalRotate(new Vector3(0, 180, 0), 0.1f);
+            }
+
+            animator.SetBool("isWalking", false);
+
+            //orcVisual.transform.DOLocalRotate(direction, 0.1f);
+
+            //Debug.Log("npcPos: " + npcPos + "finalPos: " + finalPos + "direction: " + direction);
         });
     }
 
