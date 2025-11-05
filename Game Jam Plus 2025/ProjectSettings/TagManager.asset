@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Item
   - Worker
+  - EnemySpawn
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Camera
   - Item
   - Worker
-  - 
+  - Enemy_Spawn
   - 
   - 
   - 

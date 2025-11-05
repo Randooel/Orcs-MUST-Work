@@ -20,7 +20,10 @@ public class CameraManager : MonoBehaviour
     [SerializeField] BoxCollider2D _cameraViewCollider;
 
     public int enemyCounter;
+    public bool hasEnemySpawn;
     public EnemyBehavior enemyBehavior;
+
+    private EnemySpawnManager _enemySpawnManager;
 
     public string NextDirection { get => _nextDirection; set => _nextDirection = value; }
 
@@ -162,17 +165,24 @@ public class CameraManager : MonoBehaviour
 
     public void CheckForEnemies(bool wasCalledByEnemy)
     {
-        if(enemyCounter == 0)
+        if (enemyCounter == 0)
         {
-            _gameManager.UnlockNextRoom();
+            if (hasEnemySpawn == false)
+            {
+                _gameManager.UnlockNextRoom();
 
-            if (wasCalledByEnemy)
-            {
-                CleanRoomAnim();
+                if (wasCalledByEnemy)
+                {
+                    CleanRoomAnim();
+                }
+                else if (enemyBehavior != null)
+                {
+                    enemyBehavior = null;
+                }
             }
-            else if(enemyBehavior != null)
+            else
             {
-                enemyBehavior = null;
+                _enemySpawnManager.Spawn();
             }
         }
     }

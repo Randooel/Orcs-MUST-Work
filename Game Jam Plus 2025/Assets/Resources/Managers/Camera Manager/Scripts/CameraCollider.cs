@@ -28,6 +28,27 @@ public class CameraCollider : MonoBehaviour
                 }
             }
 
+            if(collision.CompareTag("EnemySpawn"))
+            {
+                Debug.Log("Colidiu com " + collision.name);
+
+                // Add enemySpawn elements to the currentSpawns list
+                var enemySpawn = collision.GetComponent<EnemySpawn>();
+                var enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
+
+                enemySpawnManager.currentSpawns.Add(enemySpawn);
+
+                _cameraManager.hasEnemySpawn = true;
+            }
+            else
+            {
+                _cameraManager.hasEnemySpawn = false;
+
+                //Clear currentSpawnList
+                var enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
+                enemySpawnManager.ClearCurrentSpawns();
+            }
+
             _collider.enabled = false;
         }
         else if (collision.CompareTag("Player"))
