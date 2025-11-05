@@ -36,17 +36,17 @@ public class CameraCollider : MonoBehaviour
                 var enemySpawn = collision.GetComponent<EnemySpawn>();
                 var enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
 
-                enemySpawnManager.currentSpawns.Add(enemySpawn);
+                enemySpawnManager.currentSpawn = enemySpawn;
 
                 _cameraManager.hasEnemySpawn = true;
             }
             else
             {
-                _cameraManager.hasEnemySpawn = false;
+                // Now its handled by the ClearCurrentSpawns function in the EnemySpawn Script
+                //_cameraManager.hasEnemySpawn = false;
 
-                //Clear currentSpawnList
                 var enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
-                enemySpawnManager.ClearCurrentSpawns();
+                enemySpawnManager.CheckWaves();
             }
 
             _collider.enabled = false;

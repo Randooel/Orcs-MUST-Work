@@ -33,6 +33,8 @@ public class CameraManager : MonoBehaviour
 
         _gameManager = FindAnyObjectByType<GameManager>();
 
+        _enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
+
         SetEnemyCounter();
     }
 
@@ -182,7 +184,9 @@ public class CameraManager : MonoBehaviour
             }
             else
             {
-                _enemySpawnManager.Spawn();
+                SetEnemyCounter();
+
+                _enemySpawnManager.CheckWaves();
             }
         }
     }
