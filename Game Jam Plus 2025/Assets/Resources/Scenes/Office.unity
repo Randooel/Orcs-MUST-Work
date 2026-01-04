@@ -78508,11 +78508,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8379817776145633661, guid: b93d0f74c0c393a489156ae4ffdf5bb5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.71
+      value: -12.57
       objectReference: {fileID: 0}
     - target: {fileID: 8379817776145633661, guid: b93d0f74c0c393a489156ae4ffdf5bb5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.66
+      value: 12.16
       objectReference: {fileID: 0}
     - target: {fileID: 8379817776145633661, guid: b93d0f74c0c393a489156ae4ffdf5bb5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -79176,6 +79176,10 @@ PrefabInstance:
     - target: {fileID: 4499337030585591799, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: m_Name
       value: Enemy Spawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 4499337030585591799, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6193239454544183170, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: m_LocalPosition.x
