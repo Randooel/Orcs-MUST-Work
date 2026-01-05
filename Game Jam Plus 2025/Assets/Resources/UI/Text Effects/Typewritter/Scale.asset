@@ -17,7 +17,7 @@ MonoBehaviour:
   charLength: 0
   animationType: 3
   fixedDuration: 0
-  durationPerChar: 0.15
+  durationPerChar: 0.1
   timeBetweenChars: 0.05
   noDelayForChars: 0
   reverseCharOrder: 0
