@@ -77771,6 +77771,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1737130058}
     m_Modifications:
+    - target: {fileID: 2015605266434405409, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: _moveSpeed
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 2573253396607429432, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: m_Name
       value: Player
@@ -77897,10 +77901,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 253084920}
     m_Modifications:
-    - target: {fileID: 4022367316089000124, guid: 058f02fd84c664447b37b36dd4c8a0f9, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 5398088934233014165, guid: 058f02fd84c664447b37b36dd4c8a0f9, type: 3}
       propertyPath: m_Name
       value: Mesa-Worker
@@ -78280,6 +78280,10 @@ PrefabInstance:
     - target: {fileID: 601595534029397123, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: orthographic size
       value: 6.3008747
+      objectReference: {fileID: 0}
+    - target: {fileID: 601595534029397123, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 601595534029397123, guid: 4f4b95f1b1103444a8f25a17d501501d, type: 3}
       propertyPath: m_BackGroundColor.b
