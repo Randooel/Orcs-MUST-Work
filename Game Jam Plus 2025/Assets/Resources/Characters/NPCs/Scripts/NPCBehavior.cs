@@ -61,6 +61,12 @@ public class NPCBehavior : MonoBehaviour
         }
     }
 
+    public void PlayIdle()
+    {
+        //animator.Play("Idle");
+        animator.SetTrigger("Idle");
+    }
+
     public void OnDialogueEnd()
     {
         _currentPlayerMovement.canMove = true;
@@ -69,7 +75,8 @@ public class NPCBehavior : MonoBehaviour
         DisableCamera();
 
         ResetAllTriggers();
-        animator.Play("Idle");
+        //animator.Play("Idle");
+        animator.SetTrigger("Idle");
 
         _dialogueBox.SetActive(false);
 
