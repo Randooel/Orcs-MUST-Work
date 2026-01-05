@@ -1,6 +1,8 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
+using Sirenix;
+using Sirenix.OdinInspector;
 // OBS: Every function with the "DO" prefix is a DOTween function.
 // Although it isn't a official syntax, its used to identify those functions by their names.
 
@@ -8,18 +10,18 @@ public class PlayerMovement : MonoBehaviour
 {
     private DialogueManager _dialogueManager;
 
-    [Header("Other Scripts & Components References")]
+    [Title("Other Scripts & Components References")]
     public Animator animator;
 
-    [Header("Status")]
+    [Title("Status")]
     [SerializeField] bool _isInvincible;
     [SerializeField] bool _isSuperArmorActive;
 
-    [Header("Walk Config")]
+    [Title("Walk Config")]
     public bool canMove;
     [SerializeField] [Range(1, 20)] float _moveSpeed = 6;
 
-    [Header("Dodge Config")]
+    [Title("Dodge Config")]
     [SerializeField] float _dodgeForce = 50;
     [SerializeField] Vector2 lastVelocity;
     float bounceFactor = 1.2f;
@@ -28,10 +30,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform orcVisual;
     private Rigidbody2D _rb;
 
-    [Header("Shadow Config")]
+    [Title("Shadow Config")]
     [SerializeField] GameObject _shadow;
 
     #region Particles Variables
+    [Title("Particles Related")]
     [SerializeField] protected ParticleSystem dustParticles;
     [SerializeField] protected Rigidbody2D rigidBody;
     protected Vector2 particleStartPos;
