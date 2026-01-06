@@ -24,7 +24,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public void CheckWaves()
     {
-        if(currentSpawn.currentWaveIndex > currentSpawn.enemyWaves.Count)
+        if(currentSpawn.currentWaveIndex >= currentSpawn.enemyWaves.Count)
         {
             ClearCurrentSpawns();
         }

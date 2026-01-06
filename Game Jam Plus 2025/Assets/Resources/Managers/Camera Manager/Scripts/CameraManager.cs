@@ -161,15 +161,25 @@ public class CameraManager : MonoBehaviour
 
     public void SetEnemyCounter()
     {
+        //StopAllCoroutines();
+
         _cameraViewCollider.enabled = true;
+        //CheckForEnemies(false);
         StartCoroutine(WaitToCheckEnemies());
     }
 
     public void CheckForEnemies(bool wasCalledByEnemy)
     {
-        if (enemyCounter == 0)
+        Debug.Log("CheckForEnemis() " +  "wasCalledByEnemy == " + wasCalledByEnemy);
+        if (enemyCounter <= 0)
         {
-            if (hasEnemySpawn == false)
+            if (hasEnemySpawn == true)
+            {
+                SetEnemyCounter();
+
+                _enemySpawnManager.CheckWaves();
+            }
+            else
             {
                 _gameManager.UnlockNextRoom();
 
@@ -177,16 +187,11 @@ public class CameraManager : MonoBehaviour
                 {
                     CleanRoomAnim();
                 }
-                else if (enemyBehavior != null)
+
+                if (enemyBehavior != null)
                 {
                     enemyBehavior = null;
                 }
-            }
-            else
-            {
-                SetEnemyCounter();
-
-                _enemySpawnManager.CheckWaves();
             }
         }
     }
@@ -207,7 +212,7 @@ public class CameraManager : MonoBehaviour
     // COROUTINES
     private IEnumerator WaitToCheckEnemies()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         CheckForEnemies(false);
     }
 }

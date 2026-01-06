@@ -50,6 +50,10 @@ public class EnemySpawn : MonoBehaviour
 
             currentWaveIndex++;
         }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void DeactivateSpawn()
