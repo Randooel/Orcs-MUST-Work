@@ -7,7 +7,7 @@ public class EnemySpawnManager : MonoBehaviour
     private CameraManager _cameraManager;
 
     public EnemySpawn currentSpawn;
-    [SerializeField] int _wavesSpawned;
+    //[SerializeField] int _wavesSpawned;
 
     [Header("Collision Config")]
     private BoxCollider2D _collider;
@@ -24,7 +24,7 @@ public class EnemySpawnManager : MonoBehaviour
 
     public void CheckWaves()
     {
-        if(_wavesSpawned > currentSpawn.enemyWaves.Count)
+        if(currentSpawn.currentWaveIndex > currentSpawn.enemyWaves.Count)
         {
             ClearCurrentSpawns();
         }
@@ -47,6 +47,6 @@ public class EnemySpawnManager : MonoBehaviour
     {
         currentSpawn.SpawnEnemy();
 
-        _wavesSpawned++;
+        //_wavesSpawned++;
     }
 }

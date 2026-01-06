@@ -225,8 +225,6 @@ public class PlayerMovement : MonoBehaviour
     // Implementar essa função para a animação de andar parar imediatamente
     public void StopWalk()
     {
-        Debug.Log("StopWalk()");
-
         animator.SetBool("isWalking", false);
         animator.Play("Idle");
 

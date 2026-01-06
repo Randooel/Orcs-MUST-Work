@@ -71,6 +71,7 @@ public class PlayerHealth : MonoBehaviour
         if (CurrentHealth <= 0)
         {
             Death();
+            CurrentHealth = 0;
         }
 
         // Decrease Combo

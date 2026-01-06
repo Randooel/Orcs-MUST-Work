@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,10 +9,14 @@ public class GameManager : MonoBehaviour
     CameraManager _cameraManager;
     QuestManager _questManager;
 
+
     void Start()
     {
         _cameraManager = FindAnyObjectByType<CameraManager>();
         _questManager = FindAnyObjectByType<QuestManager>();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         //Time.timeScale = 0.5f;
     }

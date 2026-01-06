@@ -7,7 +7,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] List<Transform> _spawnPoints = new List<Transform>();
 
     [Space(10)]
-    [SerializeField] int _currentWaveIndex;
+    public int currentWaveIndex;
 
     [Space(10)]
     public List<EnemySpawnWave> enemyWaves = new List<EnemySpawnWave>();
@@ -23,14 +23,13 @@ public class EnemySpawn : MonoBehaviour
                 _spawnPoints.Add(transform.GetChild(i).transform);
             }
         }
-        
 
         //SpawnEnemy();        
     }
 
     public void SpawnEnemy()
     {
-        var currentWave = enemyWaves[_currentWaveIndex];
+        var currentWave = enemyWaves[currentWaveIndex];
 
         for (int i = 0; i < currentWave.spawnInfo.Count; i++)
         {
@@ -48,20 +47,20 @@ public class EnemySpawn : MonoBehaviour
             // Todo: Apply quantity (spawnInfo.y) / Determine spawn position
         }
 
-        _currentWaveIndex++;
+        currentWaveIndex++;
     }
 
     public void DeactivateSpawn()
     {
         gameObject.SetActive(false);
 
-        _currentWaveIndex = 0;
+        currentWaveIndex = 0;
     }
 }
 
 [System.Serializable]
 public class EnemySpawnWave
 {
-    [Header("<b>X</b> = EnemyType Index / <b>Y</b> = Quantity / <b>Z</b> = SpawnPoint Index")]
+    [Header("X = EnemyType Index / Y = Quantity / Z = SpawnPoint Index")]
     public List<Vector3> spawnInfo = new List<Vector3>();
 }

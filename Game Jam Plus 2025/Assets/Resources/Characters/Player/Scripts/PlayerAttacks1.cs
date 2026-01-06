@@ -120,8 +120,6 @@ public class PlayerAttacks1 : MonoBehaviour
 
     public void ActivateCanMove()
     {
-        Debug.Log("ActivateCanMove");
-
         if(_dialogueManger.isOnDialogue)
         {
             return;

@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class PlayerRage : MonoBehaviour
 {
+    #region Variables
     [Header("Rage Stats")]
     [SerializeField] float punchMultiplier;
     [SerializeField] float punchSpeed;
@@ -20,6 +21,7 @@ public class PlayerRage : MonoBehaviour
 
     [Space(10)]
     [SerializeField] RageBar _rageBar;
+    #endregion
 
     public float CurrentRage { get => _currentRage; set => _currentRage = value; }
 
@@ -69,6 +71,10 @@ public class PlayerRage : MonoBehaviour
         {
             ActivateRage();
         }
+        if(CurrentRage <= 0)
+        {
+            CurrentRage = 0;
+        }
     }
 
     public void ActivateRage()
@@ -93,7 +99,7 @@ public class PlayerRage : MonoBehaviour
 
         // Deactivates super armor
         var pMove = GetComponent<PlayerMovement>();
-        pMove.IsSuperArmorActive = true;
+        pMove.IsSuperArmorActive = false;
 
         // Scale player down
         transform.DOScale(Vector3.one, 0.25f).SetEase(Ease.OutSine);
