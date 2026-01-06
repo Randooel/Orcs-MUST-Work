@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyGoblin : EnemyBehavior
 {
-
     protected override void Start()
     {
         base.Start();

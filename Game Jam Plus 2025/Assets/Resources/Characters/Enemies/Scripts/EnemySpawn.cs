@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class EnemySpawn : MonoBehaviour
 {
-    [SerializeField] List<EnemyBehavior> _enemyType = new List<EnemyBehavior>();
-    [SerializeField] List<Transform> _spawnPoints = new List<Transform>();
+    public int currentWaveIndex;
 
     [Space(10)]
-    public int currentWaveIndex;
+    [SerializeField] List<EnemyBehavior> _enemyType = new List<EnemyBehavior>();
+    [SerializeField] List<Transform> _spawnPoints = new List<Transform>();
 
     [Space(10)]
     public List<EnemySpawnWave> enemyWaves = new List<EnemySpawnWave>();
@@ -30,22 +30,26 @@ public class EnemySpawn : MonoBehaviour
     public void SpawnEnemy()
     {
         Debug.Log("SpawnEnemy");
-        var currentWave = enemyWaves[currentWaveIndex];
 
-        for (int i = 0; i < currentWave.spawnInfo.Count; i++)
+        if(currentWaveIndex < enemyWaves.Count)
         {
-            // Selects the current enemy to be spawned, based on the currentWave spawn info
-            var enemy = _enemyType[Mathf.RoundToInt(currentWave.spawnInfo[i].x)];
-            var quantity = Mathf.RoundToInt(currentWave.spawnInfo[i].y);
-            var spawnPoint = _spawnPoints[Mathf.RoundToInt(currentWave.spawnInfo[i].z)];
+            var currentWave = enemyWaves[currentWaveIndex];
 
-            for (int j = 0; j < quantity; j++)
+            for (int i = 0; i < currentWave.spawnInfo.Count; i++)
             {
-                Instantiate(enemy.gameObject, spawnPoint.position, Quaternion.identity);
-            }
-        }
+                // Selects the current enemy to be spawned, based on the currentWave spawn info
+                var enemy = _enemyType[Mathf.RoundToInt(currentWave.spawnInfo[i].x)];
+                var quantity = Mathf.RoundToInt(currentWave.spawnInfo[i].y);
+                var spawnPoint = _spawnPoints[Mathf.RoundToInt(currentWave.spawnInfo[i].z)];
 
-        currentWaveIndex++;
+                for (int j = 0; j < quantity; j++)
+                {
+                    Instantiate(enemy.gameObject, spawnPoint.position, Quaternion.identity);
+                }
+            }
+
+            currentWaveIndex++;
+        }
     }
 
     public void DeactivateSpawn()
