@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     {
         _cameraManager = FindAnyObjectByType<CameraManager>();
         _questManager = FindAnyObjectByType<QuestManager>();
+
+        //Time.timeScale = 0.5f;
     }
 
     void Update()

@@ -120,16 +120,8 @@ public class PlayerMovement : MonoBehaviour
             dustParticles.transform.rotation = Quaternion.Euler(0,0,0); 
         }
 
-        // Stop moving instantly when no key is held
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S) ||
-            Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-        {
-            direction = Vector3.zero;
-            animator.SetBool("isWalking", false);
-        }
-
         // Handle animations
-        if (direction != Vector3.zero)
+        if(direction != Vector3.zero)
         {
             animator.SetBool("isWalking", true);
         }
@@ -191,6 +183,7 @@ public class PlayerMovement : MonoBehaviour
         IsInvincible = false;
     }
 
+    #region Automatically Move Player Functions
     // Use these functions to make other scripts control temporarily the player's movement and jump respectively
     public void DOMoveToNPC(Vector3 npcPos, Vector3 finalPos, float duration)
     {
@@ -227,11 +220,13 @@ public class PlayerMovement : MonoBehaviour
             canMove = true;
         });
     }
-
+    #endregion
 
     // Implementar essa função para a animação de andar parar imediatamente
     public void StopWalk()
     {
+        Debug.Log("StopWalk()");
+
         animator.SetBool("isWalking", false);
         animator.Play("Idle");
 
