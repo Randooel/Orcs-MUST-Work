@@ -1,10 +1,10 @@
-using UnityEngine;
 using DG.Tweening;
 using System.Collections;
-using UnityEngine.VFX;
+using UnityEngine;
 
 public abstract class EnemyBehavior : MonoBehaviour
 {
+    #region Variables
     [Header("References")]
     protected Animator _animator;
     [SerializeField] protected Transform _visual;
@@ -56,11 +56,11 @@ public abstract class EnemyBehavior : MonoBehaviour
     [SerializeField] protected GameObject explosion;
     #endregion
 
-
     public int Damage1 { get => _damage1; set => _damage1 = value; }
     protected int Damage2 { get => damage2; set => damage2 = value; }
     protected int Damage3 { get => damage3; set => damage3 = value; }
     public State CurrentState { get => _currentState; set => _currentState = value; }
+    #endregion
 
     protected virtual void Start()
     {

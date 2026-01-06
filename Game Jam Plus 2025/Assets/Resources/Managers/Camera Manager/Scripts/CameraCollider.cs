@@ -27,8 +27,8 @@ public class CameraCollider : MonoBehaviour
                     _cameraManager.enemyCounter++;
                 }
             }
-
-            if(collision.CompareTag("EnemySpawn"))
+            
+            else if(collision.CompareTag("EnemySpawn"))
             {
                 Debug.Log("Colidiu com " + collision.name);
 
@@ -40,6 +40,7 @@ public class CameraCollider : MonoBehaviour
 
                 _cameraManager.hasEnemySpawn = true;
             }
+            /*
             else
             {
                 // Now its handled by the ClearCurrentSpawns function in the EnemySpawn Script
@@ -48,6 +49,7 @@ public class CameraCollider : MonoBehaviour
                 var enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
                 enemySpawnManager.CheckWaves();
             }
+            */
 
             _collider.enabled = false;
         }

@@ -207,7 +207,7 @@ public class CameraManager : MonoBehaviour
     // COROUTINES
     private IEnumerator WaitToCheckEnemies()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         CheckForEnemies(false);
     }
 }

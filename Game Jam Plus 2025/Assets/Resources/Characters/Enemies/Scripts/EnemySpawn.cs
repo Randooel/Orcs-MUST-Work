@@ -29,6 +29,7 @@ public class EnemySpawn : MonoBehaviour
 
     public void SpawnEnemy()
     {
+        Debug.Log("SpawnEnemy");
         var currentWave = enemyWaves[currentWaveIndex];
 
         for (int i = 0; i < currentWave.spawnInfo.Count; i++)
@@ -42,9 +43,6 @@ public class EnemySpawn : MonoBehaviour
             {
                 Instantiate(enemy.gameObject, spawnPoint.position, Quaternion.identity);
             }
-            
-
-            // Todo: Apply quantity (spawnInfo.y) / Determine spawn position
         }
 
         currentWaveIndex++;
