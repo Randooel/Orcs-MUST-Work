@@ -38230,7 +38230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 670570103812259042, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.4
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 670570103812259042, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38264,10 +38264,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3223861789660281849, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -9.65
-      objectReference: {fileID: 0}
     - target: {fileID: 6124306447294352755, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
       propertyPath: m_Name
       value: NPC
@@ -38279,7 +38275,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3742834759229305343, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
 --- !u!4 &931487840 stripped
 Transform:
@@ -77383,7 +77382,6 @@ MonoBehaviour:
   _currentDialogueBox: {fileID: 0}
   _currentDialogueText: {fileID: 0}
   _currentLine: 0
-  _currentEncounter: 0
   _currentDialogueGroup: 0
   maxDialogueGroup: 0
   currentEncounter: 0

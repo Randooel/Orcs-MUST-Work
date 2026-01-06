@@ -29,7 +29,7 @@ public class EnemySpawn : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Debug.Log("SpawnEnemy");
+        //Debug.Log("SpawnEnemy");
 
         if(currentWaveIndex < enemyWaves.Count)
         {

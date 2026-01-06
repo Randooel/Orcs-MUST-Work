@@ -170,28 +170,35 @@ public class CameraManager : MonoBehaviour
 
     public void CheckForEnemies(bool wasCalledByEnemy)
     {
-        Debug.Log("CheckForEnemis() " +  "wasCalledByEnemy == " + wasCalledByEnemy);
+        Debug.Log("CheckForEnemies() " +  "| wasCalledByEnemy == " + wasCalledByEnemy 
+            + " | hasEnemySpawn == " + hasEnemySpawn);
+
         if (enemyCounter <= 0)
         {
+            Debug.Log("DEFAULT hasEnemySpawn == " + hasEnemySpawn);
             if (hasEnemySpawn == true)
             {
                 SetEnemyCounter();
 
                 _enemySpawnManager.CheckWaves();
             }
+
+            if (wasCalledByEnemy && hasEnemySpawn == false)
+            {
+                Debug.Log("CALLED BY ENEMY hasEnemySpawn == " + hasEnemySpawn);
+
+                CleanRoomAnim();
+
+                Debug.Log("CleanRoomAnim()");
+            }
             else
             {
                 _gameManager.UnlockNextRoom();
+            }
 
-                if (wasCalledByEnemy)
-                {
-                    CleanRoomAnim();
-                }
-
-                if (enemyBehavior != null)
-                {
-                    enemyBehavior = null;
-                }
+            if (enemyBehavior != null)
+            {
+                enemyBehavior = null;
             }
         }
     }
@@ -206,6 +213,8 @@ public class CameraManager : MonoBehaviour
             enemyBehavior = null;
 
             Time.timeScale = 1;
+
+            _gameManager.UnlockNextRoom();
         });
     }
 

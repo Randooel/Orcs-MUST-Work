@@ -320,7 +320,6 @@ public abstract class EnemyBehavior : MonoBehaviour
     protected virtual void HandleDeath()
     {
         _animator.SetTrigger("death");
-
         /*
         var collider = GetComponent<BoxCollider2D>();
         collider.enabled = false;

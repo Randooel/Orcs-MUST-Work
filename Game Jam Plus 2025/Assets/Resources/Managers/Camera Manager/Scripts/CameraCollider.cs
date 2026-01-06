@@ -30,7 +30,7 @@ public class CameraCollider : MonoBehaviour
             
             else if(collision.CompareTag("EnemySpawn"))
             {
-                Debug.Log("Colidiu com " + collision.name);
+                //Debug.Log("Colidiu com " + collision.name);
 
                 // Add enemySpawn elements to the currentSpawns list
                 var enemySpawn = collision.GetComponent<EnemySpawn>();

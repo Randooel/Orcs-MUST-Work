@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour
 
     [Header("Dialogue Group indexes")]
     [SerializeField] private int _currentLine = 0;
-    [SerializeField] private int _currentEncounter = 0;
+    //[SerializeField] private int _currentEncounter = 0;
     [SerializeField] private int _currentDialogueGroup = 0;
     [SerializeField][Range(0, 10)] private int maxDialogueGroup;
     [SerializeField] private int currentEncounter;
