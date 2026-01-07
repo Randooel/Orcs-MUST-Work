@@ -38275,10 +38275,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3742834759229305343, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
 --- !u!4 &931487840 stripped
 Transform:
@@ -76219,7 +76216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1736090765
 Transform:
   m_ObjectHideFlags: 0
@@ -77427,11 +77424,11 @@ PrefabInstance:
       objectReference: {fileID: 1080517640}
     - target: {fileID: 7940328572616597154, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.02
+      value: -31.49
       objectReference: {fileID: 0}
     - target: {fileID: 7940328572616597154, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.12
       objectReference: {fileID: 0}
     - target: {fileID: 7940328572616597154, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -77541,7 +77538,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5398088934233014165, guid: 058f02fd84c664447b37b36dd4c8a0f9, type: 3}
       propertyPath: m_Name
-      value: Mesa-Worker
+      value: Table-Worker
       objectReference: {fileID: 0}
     - target: {fileID: 7543657565123477287, guid: 058f02fd84c664447b37b36dd4c8a0f9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -78987,7 +78984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: enemyWaves.Array.data[0].spawnInfo.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: enemyWaves.Array.data[1].spawnInfo.Array.size
@@ -79002,16 +78999,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
+      propertyPath: enemyWaves.Array.data[0].spawnInfo.Array.data[0].z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: enemyWaves.Array.data[0].spawnInfo.Array.data[1].x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: enemyWaves.Array.data[0].spawnInfo.Array.data[1].y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: enemyWaves.Array.data[0].spawnInfo.Array.data[1].z
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: enemyWaves.Array.data[0].spawnInfo.Array.data[2].x
@@ -79019,11 +79020,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: enemyWaves.Array.data[0].spawnInfo.Array.data[2].y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: enemyWaves.Array.data[0].spawnInfo.Array.data[2].z
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4300607567989788438, guid: e6cd56f36cabf484fa9f04aee0685246, type: 3}
       propertyPath: enemyWaves.Array.data[1].spawnInfo.Array.data[0].x

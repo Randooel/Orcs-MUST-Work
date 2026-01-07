@@ -35,7 +35,7 @@ public class CameraManager : MonoBehaviour
 
         _enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
 
-        SetEnemyCounter();
+        SetEnemyCounter(0);
     }
 
     void Update()
@@ -107,7 +107,7 @@ public class CameraManager : MonoBehaviour
             _camera.position += new Vector3(0f, -(_nextPos/2 + _aditionalVertcialDistance), 0f);
         }
 
-        SetEnemyCounter();
+        SetEnemyCounter(0.5f);
     }
 
     // TEST SCRIPTS
@@ -159,41 +159,39 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    public void SetEnemyCounter()
+    public void SetEnemyCounter(float waitTime)
     {
         //StopAllCoroutines();
 
         _cameraViewCollider.enabled = true;
         //CheckForEnemies(false);
-        StartCoroutine(WaitToCheckEnemies());
+        StartCoroutine(WaitToCheckEnemies(waitTime));
     }
 
     public void CheckForEnemies(bool wasCalledByEnemy)
     {
-        Debug.Log("CheckForEnemies() " +  "| wasCalledByEnemy == " + wasCalledByEnemy 
-            + " | hasEnemySpawn == " + hasEnemySpawn);
+        Debug.Log("CheckForEnemies() " +  "| wasCalledByEnemy == " + wasCalledByEnemy + " | hasEnemySpawn == " + hasEnemySpawn);
 
         if (enemyCounter <= 0)
         {
-            Debug.Log("DEFAULT hasEnemySpawn == " + hasEnemySpawn);
             if (hasEnemySpawn == true)
             {
-                SetEnemyCounter();
+                //SetEnemyCounter(0);
 
                 _enemySpawnManager.CheckWaves();
             }
-
-            if (wasCalledByEnemy && hasEnemySpawn == false)
-            {
-                Debug.Log("CALLED BY ENEMY hasEnemySpawn == " + hasEnemySpawn);
-
-                CleanRoomAnim();
-
-                Debug.Log("CleanRoomAnim()");
-            }
             else
             {
-                _gameManager.UnlockNextRoom();
+                if (wasCalledByEnemy)
+                {
+                    Debug.Log("CleanRoomAnim()");
+
+                    CleanRoomAnim();
+                }
+                else
+                {
+                    _gameManager.UnlockNextRoom();
+                }
             }
 
             if (enemyBehavior != null)
@@ -218,10 +216,11 @@ public class CameraManager : MonoBehaviour
         });
     }
 
-    // COROUTINES
-    private IEnumerator WaitToCheckEnemies()
+    #region Coroutine(s)
+    private IEnumerator WaitToCheckEnemies(float waitTime)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(waitTime);
         CheckForEnemies(false);
     }
+    #endregion
 }

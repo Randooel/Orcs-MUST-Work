@@ -34,6 +34,7 @@ public class EnemySpawn : MonoBehaviour
         if(currentWaveIndex < enemyWaves.Count)
         {
             var currentWave = enemyWaves[currentWaveIndex];
+            var cameraManager = FindFirstObjectByType<CameraManager>(); 
 
             for (int i = 0; i < currentWave.spawnInfo.Count; i++)
             {
@@ -42,9 +43,11 @@ public class EnemySpawn : MonoBehaviour
                 var quantity = Mathf.RoundToInt(currentWave.spawnInfo[i].y);
                 var spawnPoint = _spawnPoints[Mathf.RoundToInt(currentWave.spawnInfo[i].z)];
 
+
                 for (int j = 0; j < quantity; j++)
                 {
                     Instantiate(enemy.gameObject, spawnPoint.position, Quaternion.identity);
+                    cameraManager.enemyCounter++;
                 }
             }
 

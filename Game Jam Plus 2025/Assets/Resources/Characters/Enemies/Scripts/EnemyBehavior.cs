@@ -144,7 +144,7 @@ public abstract class EnemyBehavior : MonoBehaviour
         }
     }
 
-    // COLLISION AND HEALTH RELETADE FUNCTIONS
+    #region Collision Treatment
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Arm"))
@@ -226,7 +226,9 @@ public abstract class EnemyBehavior : MonoBehaviour
         }
         */
     }
+    #endregion
 
+    #region Health Function(s)
     protected void RestoreHealth(int heal)
     {
         if (heal + _currentHealth >= _maxHealth)
@@ -238,8 +240,9 @@ public abstract class EnemyBehavior : MonoBehaviour
             _currentHealth += heal;
         }
     }
+    #endregion
 
-    // STATE MACHINE RELATED FUNCTIONS
+    #region State Machine Related
     protected void SwitchState(State nextState)
     {
         _isChasing = false;
@@ -270,6 +273,7 @@ public abstract class EnemyBehavior : MonoBehaviour
         }
     }
 
+    #region Handle State Functions
     protected virtual void HandleIdle()
     {
         
@@ -340,7 +344,7 @@ public abstract class EnemyBehavior : MonoBehaviour
         //StartCoroutine(WaitToResetVFX());
         //explosion.gameObject.GetComponentInChildren<VisualEffect>().Play();
     }
-
+    #endregion
     public void ToggleState()
     {
         if (_detectionRange.collisionDetected)
@@ -356,12 +360,14 @@ public abstract class EnemyBehavior : MonoBehaviour
             SwitchState(State.Attack1);
         }
     }
+    #endregion
 
     public void HideObject()
     {
         gameObject.SetActive(false);
     }
 
+    #region Handle Camera Functions
     public void EnableCamera()
     {
         _enemycamera.SetActive(true);
@@ -371,8 +377,9 @@ public abstract class EnemyBehavior : MonoBehaviour
     {
         _enemycamera.SetActive(false);
     }
+    #endregion
 
-    // COROUTINES
+    #region Coroutines
     IEnumerator WaitToAttackAgain()
     {
         yield return new WaitForSeconds(_attackRate);
@@ -387,4 +394,5 @@ public abstract class EnemyBehavior : MonoBehaviour
         hit.gameObject.SetActive(false);
         explosion.gameObject.SetActive(false);
     }
+    #endregion  
 }
