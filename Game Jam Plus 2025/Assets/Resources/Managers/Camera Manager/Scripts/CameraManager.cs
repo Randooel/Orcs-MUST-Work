@@ -2,28 +2,49 @@ using UnityEngine;
 using DG.Tweening;
 using System;
 using System.Collections;
+using Sirenix.OdinInspector;
 
 public class CameraManager : MonoBehaviour
 {
+    #region Variables
+
+    #region References
     private GameManager _gameManager;
+    [PropertySpace(SpaceAfter = 10)]
+    public EnemySpawn currentSpawn;
+    #endregion
 
-    [Header("References")]
+    #region References
+    [TabGroup("Camera Move")]
     BorderCollision _borderCollision;
+    [TabGroup("Camera Move")]
     [SerializeField] Transform _camera;
+    #endregion
 
-    [Header("Config")]
+    #region Config
+    [TabGroup("Camera Move")]
     [SerializeField] [Range(10, 50)] float _nextPos = 22f;
+    [TabGroup("Camera Move")]
     [SerializeField] float _aditionalVertcialDistance = 3f;
+    [TabGroup("Camera Move")]
     [SerializeField] string _nextDirection;
+    #endregion
 
+    #region Enemy Spawn Config
+    [TabGroup("Enemy Spawn Config")]
+    public int enemyCounter;
+    [TabGroup("Enemy Spawn Config")]
+    public bool hasEnemySpawn;
+    [TabGroup("Enemy Spawn Config")]
+    public EnemyBehavior enemyBehavior;
+    #endregion
+
+    #region Collider Config
     [Header("Collider Config")]
     [SerializeField] BoxCollider2D _cameraViewCollider;
+    #endregion
 
-    public int enemyCounter;
-    public bool hasEnemySpawn;
-    public EnemyBehavior enemyBehavior;
-
-    private EnemySpawnManager _enemySpawnManager;
+    #endregion
 
     public string NextDirection { get => _nextDirection; set => _nextDirection = value; }
 
@@ -33,9 +54,7 @@ public class CameraManager : MonoBehaviour
 
         _gameManager = FindAnyObjectByType<GameManager>();
 
-        _enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
-
-        SetEnemyCounter(0);
+        StartCoroutine(WaitToCheckEnemies(0));
     }
 
     void Update()
@@ -45,6 +64,7 @@ public class CameraManager : MonoBehaviour
         //TestSetNextDirection();
     }
 
+    #region Move Camera Functions
     public void SetNextDirection(string direction)
     {
         if (direction == "up")
@@ -107,10 +127,13 @@ public class CameraManager : MonoBehaviour
             _camera.position += new Vector3(0f, -(_nextPos/2 + _aditionalVertcialDistance), 0f);
         }
 
-        SetEnemyCounter(0.5f);
+        enemyCounter = 0;
+        _cameraViewCollider.enabled = true;
+        StartCoroutine(WaitToCheckEnemies(0.5f));
     }
+    #endregion
 
-    // TEST SCRIPTS
+    #region Test Scripts
     private void TestNavigateTo()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -158,34 +181,22 @@ public class CameraManager : MonoBehaviour
             SetNextDirection("");
         }
     }
-
-    public void SetEnemyCounter(float waitTime)
-    {
-        //StopAllCoroutines();
-
-        _cameraViewCollider.enabled = true;
-        //CheckForEnemies(false);
-        StartCoroutine(WaitToCheckEnemies(waitTime));
-    }
+    #endregion
 
     public void CheckForEnemies(bool wasCalledByEnemy)
     {
-        Debug.Log("CheckForEnemies() " +  "| wasCalledByEnemy == " + wasCalledByEnemy + " | hasEnemySpawn == " + hasEnemySpawn);
+        Debug.Log("CheckForEnemies() " + "| WAS CALLED BY ENEMY == " + wasCalledByEnemy + " | hasEnemySpawn == " + hasEnemySpawn);
 
         if (enemyCounter <= 0)
         {
             if (hasEnemySpawn == true)
             {
-                //SetEnemyCounter(0);
-
-                _enemySpawnManager.CheckWaves();
+                currentSpawn.SpawnEnemy();
             }
             else
             {
                 if (wasCalledByEnemy)
                 {
-                    Debug.Log("CleanRoomAnim()");
-
                     CleanRoomAnim();
                 }
                 else
@@ -219,7 +230,10 @@ public class CameraManager : MonoBehaviour
     #region Coroutine(s)
     private IEnumerator WaitToCheckEnemies(float waitTime)
     {
+        // Debug.LogWarning("WaitToCheckEnemies");
         yield return new WaitForSeconds(waitTime);
+        //Debug.LogError("WaitedToCheckEnemies");
+
         CheckForEnemies(false);
     }
     #endregion

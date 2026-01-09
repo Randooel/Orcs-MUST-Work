@@ -31,10 +31,11 @@ public class EnemySpawn : MonoBehaviour
     {
         //Debug.Log("SpawnEnemy");
 
-        if(currentWaveIndex < enemyWaves.Count)
+        var cameraManager = FindFirstObjectByType<CameraManager>();
+
+        if (currentWaveIndex < enemyWaves.Count)
         {
             var currentWave = enemyWaves[currentWaveIndex];
-            var cameraManager = FindFirstObjectByType<CameraManager>(); 
 
             for (int i = 0; i < currentWave.spawnInfo.Count; i++)
             {
@@ -53,8 +54,10 @@ public class EnemySpawn : MonoBehaviour
 
             currentWaveIndex++;
         }
-        else
+
+        if(currentWaveIndex >= enemyWaves.Count)
         {
+            cameraManager.hasEnemySpawn = false;
             gameObject.SetActive(false);
         }
     }

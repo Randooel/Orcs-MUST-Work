@@ -23,6 +23,7 @@ public abstract class EnemyBehavior : MonoBehaviour
         Death
     }
     [SerializeField] protected bool _isChasing;
+    private bool died;
 
     [Space(10)]
     [SerializeField] protected int _currentHealth;
@@ -151,6 +152,8 @@ public abstract class EnemyBehavior : MonoBehaviour
         {
             if(CurrentState != State.Death)
             {
+                //Debug.LogWarning("Hit enemy: " + name + "Hit enemy state: " + CurrentState);
+
                 if (collision.transform.parent.TryGetComponent(out PlayerAttacks1 playerAttacks1))
                 {
                     _isDuringThrow = true;
@@ -181,6 +184,10 @@ public abstract class EnemyBehavior : MonoBehaviour
                     // Combo Increase
                     ComboManager.OnHit?.Invoke(true);
                 }
+            }
+            else
+            {
+                return;
             }
         }
     }
@@ -324,6 +331,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     protected virtual void HandleDeath()
     {
         _animator.SetTrigger("death");
+
         /*
         var collider = GetComponent<BoxCollider2D>();
         collider.enabled = false;
@@ -337,7 +345,12 @@ public abstract class EnemyBehavior : MonoBehaviour
 
         // Checks if there is any enemy leftt on the current room
         var cameraManager = FindAnyObjectByType<CameraManager>();
-        cameraManager.enemyCounter--;
+        if(!died)
+        {
+            cameraManager.enemyCounter--;
+            died = true;
+        }
+        
         cameraManager.enemyBehavior = this;
         cameraManager.CheckForEnemies(true);
 

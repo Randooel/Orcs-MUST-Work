@@ -12,13 +12,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Table-Worker
       objectReference: {fileID: 0}
+    - target: {fileID: 2541013880244674622, guid: b902d8680b667af4cbac17fe96f7cec7, type: 3}
+      propertyPath: m_Color.b
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2541013880244674622, guid: b902d8680b667af4cbac17fe96f7cec7, type: 3}
+      propertyPath: m_Color.g
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2541013880244674622, guid: b902d8680b667af4cbac17fe96f7cec7, type: 3}
+      propertyPath: m_Color.r
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 4355606819896176112, guid: b902d8680b667af4cbac17fe96f7cec7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.8
+      value: 3.46
       objectReference: {fileID: 0}
     - target: {fileID: 4355606819896176112, guid: b902d8680b667af4cbac17fe96f7cec7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.06
+      value: -5.42
       objectReference: {fileID: 0}
     - target: {fileID: 4355606819896176112, guid: b902d8680b667af4cbac17fe96f7cec7, type: 3}
       propertyPath: m_LocalPosition.z

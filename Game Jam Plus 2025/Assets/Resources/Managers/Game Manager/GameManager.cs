@@ -15,8 +15,10 @@ public class GameManager : MonoBehaviour
         _cameraManager = FindAnyObjectByType<CameraManager>();
         _questManager = FindAnyObjectByType<QuestManager>();
 
+        /*
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        */
 
         //Time.timeScale = 0.5f;
     }

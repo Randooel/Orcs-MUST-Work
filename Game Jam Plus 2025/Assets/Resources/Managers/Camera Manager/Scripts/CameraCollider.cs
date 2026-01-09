@@ -18,6 +18,8 @@ public class CameraCollider : MonoBehaviour
     {
         if (isRay)
         {
+            Debug.Log(collision.name);
+
             if (collision.CompareTag("Enemy"))
             {
                 var enemy = collision.GetComponent<EnemyBehavior>();
@@ -27,31 +29,18 @@ public class CameraCollider : MonoBehaviour
                     _cameraManager.enemyCounter++;
                 }
             }
-            
             else if(collision.CompareTag("EnemySpawn"))
             {
                 //Debug.Log("Colidiu com " + collision.name);
 
                 // Add enemySpawn elements to the currentSpawns list
                 var enemySpawn = collision.GetComponent<EnemySpawn>();
-                var enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
-
-                enemySpawnManager.currentSpawn = enemySpawn;
 
                 _cameraManager.hasEnemySpawn = true;
+                _cameraManager.currentSpawn = enemySpawn;
             }
-            /*
-            else
-            {
-                // Now its handled by the ClearCurrentSpawns function in the EnemySpawn Script
-                //_cameraManager.hasEnemySpawn = false;
 
-                var enemySpawnManager = FindAnyObjectByType<EnemySpawnManager>();
-                enemySpawnManager.CheckWaves();
-            }
-            */
-
-            _collider.enabled = false;
+            //_collider.enabled = false;
         }
         else if (collision.CompareTag("Player"))
         {
@@ -59,5 +48,7 @@ public class CameraCollider : MonoBehaviour
 
             borderCollision.ActivateNavigation();
         }
+
+        _collider.enabled = false;
     }
 }
