@@ -73,6 +73,7 @@ public class DialogueManager : MonoBehaviour
 
         _textEffect.StartManualEffect("Typewritter");
 
+        _npcBehavior.animator.Rebind();
         _npcBehavior.animator.SetTrigger("Speak");
         //_npcBehavior.animator.Play("Speak");
     }
