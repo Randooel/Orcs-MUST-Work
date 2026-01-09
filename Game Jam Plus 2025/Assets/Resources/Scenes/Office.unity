@@ -37660,7 +37660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.77
+      value: 9.049999
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38208,7 +38208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.15
+      value: -7.870001
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.y
@@ -38572,6 +38572,11 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!4 &1061529638 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1945421749905321220, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+  m_PrefabInstance: {fileID: 1291511173322717898}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1068855546
 GameObject:
   m_ObjectHideFlags: 0
@@ -38652,6 +38657,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f48757b08c3514cb472aeebc156be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1090534222 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 29966731233247057, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+  m_PrefabInstance: {fileID: 1291511173322717898}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1145126953
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74896,7 +74906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.77
+      value: 9.049999
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.y
@@ -75190,6 +75200,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6303292925406348687, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
+      propertyPath: _playerTargets.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303292925406348687, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
+      propertyPath: '_playerTargets.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1061529638}
+    - target: {fileID: 6303292925406348687, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
+      propertyPath: '_playerTargets.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1090534222}
     - target: {fileID: 8699921455261221360, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
       propertyPath: m_Name
       value: Goblin Enemy Variant
@@ -75421,7 +75443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.77
+      value: 26.05
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.y
@@ -75488,7 +75510,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2670612351610368097, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3599987
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 2670612351610368097, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -75526,17 +75548,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6303292925406348687, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
-      propertyPath: _maxHealth
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8699921455261221360, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
       propertyPath: m_Name
       value: Goblin Enemy Variant (11)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8699921455261221360, guid: f3a5946622bfc964ea3d1af0eda379e6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75593,7 +75607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.77
+      value: 26.05
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.y
@@ -77248,9 +77262,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1737130058}
     m_Modifications:
-    - target: {fileID: 2015605266434405409, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
-      propertyPath: _moveSpeed
-      value: 9
+    - target: {fileID: 1281683962284283181, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: m_Name
+      value: Target2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474382363742519385, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: m_Name
+      value: Target1
       objectReference: {fileID: 0}
     - target: {fileID: 2573253396607429432, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: m_Name
@@ -77503,7 +77521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.15
+      value: -7.87
       objectReference: {fileID: 0}
     - target: {fileID: 1243621965695515877, guid: 898f414047b5ad345a3720886e36b610, type: 3}
       propertyPath: m_LocalPosition.y
@@ -78049,14 +78067,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wizard
       objectReference: {fileID: 0}
-    - target: {fileID: 3774245974966501943, guid: 103ddf911ee5b2e40aa5cd23c9a85b57, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 7200296046695345691}
-    - target: {fileID: 5235104234673710622, guid: 103ddf911ee5b2e40aa5cd23c9a85b57, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7950421927286162657, guid: 103ddf911ee5b2e40aa5cd23c9a85b57, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.47
@@ -78330,11 +78340,6 @@ PrefabInstance:
 --- !u!4 &7200296046695345690 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7950421927286162657, guid: 103ddf911ee5b2e40aa5cd23c9a85b57, type: 3}
-  m_PrefabInstance: {fileID: 6047531086402017594}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &7200296046695345691 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 2280941213117689785, guid: 103ddf911ee5b2e40aa5cd23c9a85b57, type: 3}
   m_PrefabInstance: {fileID: 6047531086402017594}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7568621018320057895

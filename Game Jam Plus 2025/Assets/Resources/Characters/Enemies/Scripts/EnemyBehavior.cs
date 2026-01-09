@@ -15,6 +15,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     public enum State
     {
         Idle,
+        Spawn,
         Chase,
         Attack1,
         Attack2,
@@ -24,6 +25,8 @@ public abstract class EnemyBehavior : MonoBehaviour
     }
     [SerializeField] protected bool _isChasing;
     private bool died;
+    [HideInInspector]
+    public bool wasSpawned;
 
     [Space(10)]
     [SerializeField] protected int _currentHealth;
@@ -65,9 +68,16 @@ public abstract class EnemyBehavior : MonoBehaviour
 
     protected virtual void Start()
     {
+        _animator = GetComponent<Animator>();
+
         // Seting variables up
         RestoreHealth(_maxHealth);
-        SwitchState(State.Idle);
+        //SwitchState(State.Idle);
+
+        if(wasSpawned)
+        {
+            SwitchState(State.Spawn);
+        }
 
         hit.gameObject.SetActive(false);
         explosion.gameObject.SetActive(false);
@@ -88,7 +98,6 @@ public abstract class EnemyBehavior : MonoBehaviour
         }
 
         // Seting references up
-        _animator = GetComponent<Animator>();
 
         _playerTargets = new Transform[4];
 
@@ -250,7 +259,7 @@ public abstract class EnemyBehavior : MonoBehaviour
     #endregion
 
     #region State Machine Related
-    protected void SwitchState(State nextState)
+    public void SwitchState(State nextState)
     {
         _isChasing = false;
 
@@ -260,6 +269,9 @@ public abstract class EnemyBehavior : MonoBehaviour
         {
             case State.Idle:
                 HandleIdle();
+                break;
+            case State.Spawn:
+                HandleSpawn();
                 break;
             case State.Chase:
                 HandleChase(); 
@@ -284,6 +296,10 @@ public abstract class EnemyBehavior : MonoBehaviour
     protected virtual void HandleIdle()
     {
         
+    }
+    protected virtual void HandleSpawn()
+    {
+        _animator.SetTrigger("spawn");
     }
     protected virtual void HandleChase()
     {

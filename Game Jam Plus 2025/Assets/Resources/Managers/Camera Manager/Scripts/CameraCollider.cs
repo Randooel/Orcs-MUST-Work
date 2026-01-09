@@ -18,7 +18,7 @@ public class CameraCollider : MonoBehaviour
     {
         if (isRay)
         {
-            Debug.Log(collision.name);
+            //Debug.Log(collision.name);
 
             if (collision.CompareTag("Enemy"))
             {
@@ -49,6 +49,9 @@ public class CameraCollider : MonoBehaviour
             borderCollision.ActivateNavigation();
         }
 
-        _collider.enabled = false;
+        if(isRay)
+        {
+            _collider.enabled = false;
+        }
     }
 }

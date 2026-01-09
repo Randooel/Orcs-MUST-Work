@@ -185,7 +185,7 @@ public class CameraManager : MonoBehaviour
 
     public void CheckForEnemies(bool wasCalledByEnemy)
     {
-        Debug.Log("CheckForEnemies() " + "| WAS CALLED BY ENEMY == " + wasCalledByEnemy + " | hasEnemySpawn == " + hasEnemySpawn);
+        //Debug.Log("CheckForEnemies() " + "| WAS CALLED BY ENEMY == " + wasCalledByEnemy + " | hasEnemySpawn == " + hasEnemySpawn);
 
         if (enemyCounter <= 0)
         {

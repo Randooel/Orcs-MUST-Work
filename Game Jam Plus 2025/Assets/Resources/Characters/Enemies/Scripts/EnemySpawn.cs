@@ -47,7 +47,9 @@ public class EnemySpawn : MonoBehaviour
 
                 for (int j = 0; j < quantity; j++)
                 {
-                    Instantiate(enemy.gameObject, spawnPoint.position, Quaternion.identity);
+                    var enemyInstance = Instantiate(enemy.gameObject, spawnPoint.position, Quaternion.identity);
+                    enemyInstance.GetComponent<EnemyBehavior>().wasSpawned = true;
+
                     cameraManager.enemyCounter++;
                 }
             }
