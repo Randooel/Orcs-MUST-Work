@@ -807,6 +807,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1624427816577068812, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
+      propertyPath: m_Size.x
+      value: 1.7628812
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624427816577068812, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
+      propertyPath: m_Size.y
+      value: 2.2263656
+      objectReference: {fileID: 0}
+    - target: {fileID: 1624427816577068812, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.0736649
+      objectReference: {fileID: 0}
     - target: {fileID: 1735506874511140371, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
       propertyPath: m_Color.b
       value: 0.1137255
@@ -1022,7 +1034,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.27992666}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1032,7 +1044,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.5598533}
   m_EdgeRadius: 0
 --- !u!95 &2280941213117689785
 Animator:
@@ -1082,7 +1094,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!4 &6832308617993501428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4164414684510814967, guid: e358255a3417e4042a8a387aa4a113ce, type: 3}
