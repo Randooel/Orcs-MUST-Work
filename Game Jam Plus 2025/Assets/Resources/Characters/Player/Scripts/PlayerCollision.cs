@@ -14,11 +14,6 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Wall"))
@@ -55,5 +50,4 @@ public class PlayerCollision : MonoBehaviour
     }
 
     // COROUTINES
-    
 }

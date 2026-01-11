@@ -236,7 +236,9 @@ public class CameraManager : MonoBehaviour
 
             Time.timeScale = 1;
 
-            if(!hasNPC)
+        }).OnComplete(() =>
+        {
+            if (!hasNPC)
             {
                 _gameManager.UnlockNextRoom();
             }

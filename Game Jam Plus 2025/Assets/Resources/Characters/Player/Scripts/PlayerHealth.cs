@@ -78,6 +78,10 @@ public class PlayerHealth : MonoBehaviour
         ComboManager.OnHit?.Invoke(false);
 
         _playerRage.RefreshRage(-damage);
+
+        var cam = FindAnyObjectByType<ScreenShakeManager>();
+        cam.ScreenShake(1f);
+        Debug.Log(cam);
     }
 
     public void Death()
