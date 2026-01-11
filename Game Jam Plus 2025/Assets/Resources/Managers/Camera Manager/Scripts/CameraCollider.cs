@@ -18,18 +18,18 @@ public class CameraCollider : MonoBehaviour
     {
         if (isRay)
         {
-            //Debug.Log(collision.name);
+            Debug.Log(collision.name);
 
             if (collision.CompareTag("Enemy"))
             {
                 var enemy = collision.GetComponent<EnemyBehavior>();
 
-                if(enemy.CurrentState != EnemyBehavior.State.Death)
+                if (enemy.CurrentState != EnemyBehavior.State.Death)
                 {
                     _cameraManager.enemyCounter++;
                 }
             }
-            else if(collision.CompareTag("EnemySpawn"))
+            else if (collision.CompareTag("EnemySpawn"))
             {
                 //Debug.Log("Colidiu com " + collision.name);
 
@@ -38,6 +38,12 @@ public class CameraCollider : MonoBehaviour
 
                 _cameraManager.hasEnemySpawn = true;
                 _cameraManager.currentSpawn = enemySpawn;
+            }
+            
+            if (collision.CompareTag("NPC"))
+            {
+                _cameraManager.hasNPC = true;
+                _cameraManager.currentNPC = collision.GetComponent<NPCBehavior>();
             }
 
             //_collider.enabled = false;

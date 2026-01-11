@@ -18,6 +18,9 @@ public class NPCBehavior : MonoBehaviour
     [SerializeField] GameObject _npcCamera;
     [SerializeField] Transform _playerPosition;
 
+    [Space(20)]
+    public bool canTalk;
+
     [Space(10)]
     [SerializeField] PlayerMovement _currentPlayerMovement;
 
@@ -46,7 +49,7 @@ public class NPCBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Arm"))
+        if (collision.CompareTag("Arm") && canTalk)
         {
             _currentPlayerMovement = collision.GetComponentInParent<PlayerMovement>();
             _currentPlayerMovement.canMove = false;
@@ -79,6 +82,8 @@ public class NPCBehavior : MonoBehaviour
         animator.SetTrigger("Idle");
 
         _dialogueBox.SetActive(false);
+
+        FindAnyObjectByType<GameManager>().UnlockNextRoom();
 
         //_currentEncounter++;
     }

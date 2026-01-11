@@ -8,13 +8,14 @@ public class CameraManager : MonoBehaviour
 {
     #region Variables
 
-    #region References
+    #region Scripts References
     private GameManager _gameManager;
+    private GoUI _goUI;
     [PropertySpace(SpaceAfter = 10)]
     public EnemySpawn currentSpawn;
     #endregion
 
-    #region References
+    #region Camera Move related References
     [TabGroup("Camera Move")]
     BorderCollision _borderCollision;
     [TabGroup("Camera Move")]
@@ -39,6 +40,11 @@ public class CameraManager : MonoBehaviour
     public EnemyBehavior enemyBehavior;
     #endregion
 
+    [Header("NPC Related")]
+    [PropertySpace(SpaceBefore = 15, SpaceAfter = 15)]
+    public bool hasNPC;
+    public NPCBehavior currentNPC;
+
     #region Collider Config
     [Header("Collider Config")]
     [SerializeField] BoxCollider2D _cameraViewCollider;
@@ -53,6 +59,8 @@ public class CameraManager : MonoBehaviour
         _borderCollision = FindAnyObjectByType<BorderCollision>();
 
         _gameManager = FindAnyObjectByType<GameManager>();
+
+        _goUI = FindAnyObjectByType<GoUI>();
 
         StartCoroutine(WaitToCheckEnemies(0));
     }
@@ -127,8 +135,10 @@ public class CameraManager : MonoBehaviour
             _camera.position += new Vector3(0f, -(_nextPos/2 + _aditionalVertcialDistance), 0f);
         }
 
+        hasNPC = false;
         enemyCounter = 0;
         _cameraViewCollider.enabled = true;
+        _goUI.ToggleUI(false);
         StartCoroutine(WaitToCheckEnemies(0.5f));
     }
     #endregion
@@ -201,7 +211,10 @@ public class CameraManager : MonoBehaviour
                 }
                 else
                 {
-                    _gameManager.UnlockNextRoom();
+                    if(!hasNPC)
+                    {
+                        _gameManager.UnlockNextRoom();
+                    }
                 }
             }
 
@@ -223,7 +236,14 @@ public class CameraManager : MonoBehaviour
 
             Time.timeScale = 1;
 
-            _gameManager.UnlockNextRoom();
+            if(!hasNPC)
+            {
+                _gameManager.UnlockNextRoom();
+            }
+            else
+            {
+                currentNPC.canTalk = true;
+            }
         });
     }
 

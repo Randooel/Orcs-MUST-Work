@@ -8,12 +8,15 @@ public class GameManager : MonoBehaviour
     [Header("Other Scripts References")]
     CameraManager _cameraManager;
     QuestManager _questManager;
+    GoUI _goUI;
 
 
     void Start()
     {
         _cameraManager = FindAnyObjectByType<CameraManager>();
         _questManager = FindAnyObjectByType<QuestManager>();
+
+        _goUI = FindAnyObjectByType<GoUI>();
 
         /*
         Cursor.visible = false;
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour
 
         _cameraManager.SetNextDirection(nextRoom);
 
-        _questManager.UpdateRoom(); 
+        _questManager.UpdateRoom();
+
+        _goUI.SetDirection();
     }
 }
