@@ -18,7 +18,7 @@ public class CameraCollider : MonoBehaviour
     {
         if (isRay)
         {
-            Debug.Log(collision.name);
+            //Debug.Log(collision.name);
 
             if (collision.CompareTag("Enemy"))
             {
@@ -39,7 +39,6 @@ public class CameraCollider : MonoBehaviour
                 _cameraManager.hasEnemySpawn = true;
                 _cameraManager.currentSpawn = enemySpawn;
             }
-            
             if (collision.CompareTag("NPC"))
             {
                 _cameraManager.hasNPC = true;
