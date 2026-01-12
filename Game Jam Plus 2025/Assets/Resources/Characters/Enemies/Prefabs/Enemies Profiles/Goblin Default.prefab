@@ -256,11 +256,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3846467313621240465, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3599987
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 3846467313621240465, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.24
+      value: 3.79
       objectReference: {fileID: 0}
     - target: {fileID: 3846467313621240465, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       propertyPath: m_LocalPosition.z
@@ -461,6 +461,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7553339306646911744, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       insertIndex: 1
+      addedObject: {fileID: 5193909489122831214}
+    - targetCorrespondingSourceObject: {fileID: 7553339306646911744, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
+      insertIndex: 2
       addedObject: {fileID: 2432660367254911500}
     - targetCorrespondingSourceObject: {fileID: 7283065420806740427, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
       insertIndex: 1
@@ -515,6 +518,102 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7553339306646911744, guid: 60e350fe6a36c5a4cbcefafcb76ccc87, type: 3}
   m_PrefabInstance: {fileID: 1184040349405428464}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5193909489122831214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699921455261221360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCollisionImpulseSource
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 0
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.2
+    ImpulseType: 3
+    DissipationRate: 0
+    RawSignal: {fileID: 11400000, guid: 72b1558f8894592448fe2644bef67e73, type: 2}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 1
+          outSlope: 1
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0.1
+      SustainTime: 0.2
+      DecayTime: 0.1
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0, y: -1, z: 0}
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 513
+  IgnoreTag: 
+  UseImpactDirection: 0
+  ScaleImpactWithMass: 0
+  ScaleImpactWithSpeed: 0
 --- !u!95 &2432660367254911500
 Animator:
   serializedVersion: 7

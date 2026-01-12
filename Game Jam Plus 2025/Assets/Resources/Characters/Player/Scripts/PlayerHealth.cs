@@ -79,9 +79,11 @@ public class PlayerHealth : MonoBehaviour
 
         _playerRage.RefreshRage(-damage);
 
+        /*
         var cam = FindAnyObjectByType<ScreenShakeManager>();
         cam.ScreenShake(1f);
         Debug.Log(cam);
+        */
     }
 
     public void Death()

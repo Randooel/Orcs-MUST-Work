@@ -252,7 +252,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 0
@@ -1084,7 +1084,19 @@ MonoBehaviour:
     effect: {fileID: 11400000, guid: 3c4ae9a2d491cfc46a631777d41222d4, type: 2}
     onEffectCompleted:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 1589153133441197874}
+          m_TargetAssemblyTypeName: NPCBehavior, Assembly-CSharp
+          m_MethodName: PlayIdle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     overrideTagEffects: 0
   - triggerWhen: 0
     effect: {fileID: 11400000, guid: 6621638d3bde9a640a6de4c0c990d5e3, type: 2}

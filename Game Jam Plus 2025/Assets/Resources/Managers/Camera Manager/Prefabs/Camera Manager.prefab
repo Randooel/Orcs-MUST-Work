@@ -44,6 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f984d4df383ef54f952303bec6e96d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentSpawn: {fileID: 0}
   _camera: {fileID: 0}
   _nextPos: 22
+  _aditionalVertcialDistance: 3.5
   _nextDirection: 
+  enemyCounter: 0
+  hasEnemySpawn: 0
+  enemyBehavior: {fileID: 0}
+  hasNPC: 0
+  currentNPC: {fileID: 0}
+  _cameraViewCollider: {fileID: 0}

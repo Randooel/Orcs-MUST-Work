@@ -336,9 +336,11 @@ public abstract class EnemyBehavior : MonoBehaviour
             SwitchState(State.Death);
         }
 
+        /*
         var cam = FindAnyObjectByType<ScreenShakeManager>();
         cam.ScreenShake(1f);
         Debug.Log(cam);
+        */
     }
 
     protected virtual void HandleThrown(float tForce, Transform collisionDirection)

@@ -303,7 +303,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1241361713059838174}
   - component: {fileID: 3169287152906101719}
-  - component: {fileID: 3863856834657515310}
   m_Layer: 10
   m_Name: CAMERA
   m_TagString: Wall
@@ -351,23 +350,6 @@ MonoBehaviour:
   - {fileID: 1537496323667804242}
   - {fileID: 7365727060270507159}
   currentTriggerCollider: 0
---- !u!114 &3863856834657515310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2626997024825261761}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb9136aa7d383f44c8716e9990dbdffc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScreenShake
-  _mainCamera: {fileID: 0}
-  _duration: 100
-  _strength: 100
-  _vibrato: 100
-  _randomness: 90
 --- !u!1 &3995602744244918092
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +363,7 @@ GameObject:
   - component: {fileID: 3183245715309161071}
   - component: {fileID: 1120735460512866048}
   - component: {fileID: 7362584621482095372}
+  - component: {fileID: 2937911375413011126}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -538,6 +521,30 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &2937911375413011126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3995602744244918092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineImpulseListener
+  ApplyAfter: 2
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 1
+  UseCameraSpace: 1
+  SignalCombinationMode: 0
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &4719717108340693061
 GameObject:
   m_ObjectHideFlags: 0
