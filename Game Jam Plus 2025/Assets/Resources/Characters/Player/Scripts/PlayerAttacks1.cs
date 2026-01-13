@@ -2,7 +2,9 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using Unity.VisualScripting;
+#if UNITY_EDITOR
 using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+#endif
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 
