@@ -18,10 +18,7 @@ public class GameManager : MonoBehaviour
 
         _goUI = FindAnyObjectByType<GoUI>();
 
-        /*
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        */
+        HideAndLockMouse();
 
         //Time.timeScale = 0.5f;
     }
@@ -32,6 +29,17 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Office");
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+    }
+
+    public void HideAndLockMouse()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // make enemyBehavior call it when it dies

@@ -1,22 +1,32 @@
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using Unity.VisualScripting;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
+using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
 public class PlayerAttacks1 : MonoBehaviour
 {
     private DialogueManager _dialogueManger;
     private PlayerRage _playerRage;
     
-    [Header("Other Scripts & Components References")]
+    [Title("Other Scripts & Components References")]
     private PlayerMovement _playerMovement;
 
-    [Header("Combo config")]
+    [Title("Combo config")]
     [SerializeField] int _currentDamage = 0;
     [SerializeField] float _currentThrowForce = 0;
     [SerializeField] int _hitCounter;
     [SerializeField] float _resetCounterTime = 1.5f;
     [SerializeField] bool _isAnim;
     private Coroutine _currentCoroutine;
+
+    [Title("Movement during attacks")]
+    [SerializeField] private bool _isAttacking;
+    [SerializeField] private float dashForce;
+
+    [SerializeField] [Range(0, 50)] private List<float> _attackDashForce = new List<float>(4);
 
 
     public int CurrentDamage { get => _currentDamage; set => _currentDamage = value; }
@@ -43,6 +53,14 @@ public class PlayerAttacks1 : MonoBehaviour
         }
     }
 
+    void FixedUpdate()
+    {
+        if(_isAttacking == true)
+        {
+            MoveDuringAttack(dashForce);
+        }
+    }
+
     private void Attack()
     {
         _playerMovement.canMove = false;
@@ -50,7 +68,9 @@ public class PlayerAttacks1 : MonoBehaviour
         if (_hitCounter == 0)
         {
             _hitCounter++;
-            CurrentThrowForce = 0f;
+            CurrentThrowForce = _attackDashForce[0];
+
+            dashForce = _attackDashForce[0];
 
             StopCoroutine(WaitToResetHitCounter());
 
@@ -61,7 +81,9 @@ public class PlayerAttacks1 : MonoBehaviour
         else if (_hitCounter == 1)
         {
             _hitCounter++;
-            CurrentThrowForce = 0f;
+            CurrentThrowForce = _attackDashForce[1];
+
+            dashForce = _attackDashForce[1];
 
             StopCoroutine(WaitToResetHitCounter());
 
@@ -72,6 +94,8 @@ public class PlayerAttacks1 : MonoBehaviour
             _hitCounter++;
             CurrentThrowForce = 5f;
 
+            CurrentThrowForce = _attackDashForce[2];
+
             StopCoroutine(WaitToResetHitCounter());
 
             _playerMovement.animator.SetTrigger("quick attack 2");
@@ -80,6 +104,8 @@ public class PlayerAttacks1 : MonoBehaviour
         {
             _hitCounter++;
             CurrentThrowForce = 50f;
+
+            dashForce = _attackDashForce[3];
 
             StopCoroutine(WaitToResetHitCounter());
 
@@ -101,6 +127,8 @@ public class PlayerAttacks1 : MonoBehaviour
             CurrentDamage *= 2;
             CurrentThrowForce *= 2;
         }
+
+        _isAttacking = true;
 
         //CurrentThrowForce++;
         _currentCoroutine = StartCoroutine(WaitToResetHitCounter());
@@ -128,6 +156,16 @@ public class PlayerAttacks1 : MonoBehaviour
         {
             _playerMovement.canMove = true;
         }
+    }
+
+    public void MoveDuringAttack(float dashForce)
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
+        var direction = GetComponent<PlayerMovement>().orcVisual.right;
+        rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
+
+        _isAttacking = false;
     }
 
     private void ResetHitCounter(int maxCount)
