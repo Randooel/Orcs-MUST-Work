@@ -29,17 +29,18 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Office");
         }
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
     }
 
     public void HideAndLockMouse()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void ShowAndFreeMouse()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // make enemyBehavior call it when it dies

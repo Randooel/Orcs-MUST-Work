@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 2541013880244674622}
   - component: {fileID: 7550057616489500707}
   m_Layer: 10
-  m_Name: Mesa
+  m_Name: Table - Worker
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
