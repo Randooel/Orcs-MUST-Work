@@ -78884,77 +78884,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1268916437}
     m_Modifications:
-    - target: {fileID: 73861378639007910, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.b
-      value: 0.54901963
-      objectReference: {fileID: 0}
-    - target: {fileID: 73861378639007910, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.g
-      value: 0.40392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 73861378639007910, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1264161033268711541, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
       propertyPath: m_Name
       value: Goblin NPC
       objectReference: {fileID: 0}
     - target: {fileID: 1589153133441197874, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
       propertyPath: canTalk
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1589153133441197874, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: _dialogueSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 3798b01beafa94349a11e08ad30bf61d, type: 2}
-    - target: {fileID: 1890633924177006037, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.b
-      value: 0.54901963
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890633924177006037, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.g
-      value: 0.40392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 1890633924177006037, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1912121602592698623, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.b
-      value: 0.54901963
-      objectReference: {fileID: 0}
-    - target: {fileID: 1912121602592698623, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.g
-      value: 0.40392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 1912121602592698623, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2254822818458312609, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.b
-      value: 0.54901963
-      objectReference: {fileID: 0}
-    - target: {fileID: 2254822818458312609, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.g
-      value: 0.40392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 2254822818458312609, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5215235538613844814, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.b
-      value: 0.54740995
-      objectReference: {fileID: 0}
-    - target: {fileID: 5215235538613844814, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.g
-      value: 0.4009434
-      objectReference: {fileID: 0}
-    - target: {fileID: 5215235538613844814, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
-      propertyPath: m_Color.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5492294174935605732, guid: 0c9ee2a5a531cfb40bf80da4461b3b2f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -81906,10 +81842,6 @@ PrefabInstance:
     - target: {fileID: 3739726217419093360, guid: 103ddf911ee5b2e40aa5cd23c9a85b57, type: 3}
       propertyPath: m_Name
       value: Purple Wizard
-      objectReference: {fileID: 0}
-    - target: {fileID: 3739726217419093360, guid: 103ddf911ee5b2e40aa5cd23c9a85b57, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7950421927286162657, guid: 103ddf911ee5b2e40aa5cd23c9a85b57, type: 3}
       propertyPath: m_LocalPosition.x

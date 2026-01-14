@@ -218,6 +218,10 @@ public class CameraManager : MonoBehaviour
                     {
                         _gameManager.UnlockNextRoom();
                     }
+                    else
+                    {
+                        currentNPC.canTalk = true;
+                    }
                 }
             }
 

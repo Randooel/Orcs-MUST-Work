@@ -1,24 +1,30 @@
 using UnityEngine;
 using TMPro;
 using EasyTextEffects;
+using System.ComponentModel;
 
 public class NPCBehavior : MonoBehaviour
 {
     private DialogueManager _dialogueManager;
     public Animator animator;
 
+    #region Config
     [Header("Config")]
     [SerializeField] DialogueSO _dialogueSO;
     [SerializeField] int _currentEncounter;
     [SerializeField] int _currentDialogueGroup;
+    #endregion
 
+    #region Dialogue Visual
     [Header("Dialogue ¨Visual")]
     [SerializeField] GameObject _dialogueBox;
     [SerializeField] TextMeshPro _dialogueText;
     [SerializeField] GameObject _npcCamera;
     [SerializeField] Transform _playerPosition;
+    #endregion
 
-    [Space(20)]
+    [Space(10)]
+    [Sirenix.OdinInspector.ReadOnly]
     public bool canTalk;
 
     [Space(10)]

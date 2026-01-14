@@ -998,7 +998,7 @@ MonoBehaviour:
   _dialogueText: {fileID: 4882425016976922144}
   _npcCamera: {fileID: 6566574279382943121}
   _playerPosition: {fileID: 1954050177178283320}
-  canTalk: 1
+  canTalk: 0
   _currentPlayerMovement: {fileID: 0}
 --- !u!61 &4835859166888465468
 BoxCollider2D:
