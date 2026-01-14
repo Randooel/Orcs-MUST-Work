@@ -8,11 +8,12 @@ public class CameraManager : MonoBehaviour
 {
     #region Variables
 
-    #region Scripts References
+    #region Script References
     private GameManager _gameManager;
     private GoUI _goUI;
     [PropertySpace(SpaceAfter = 10)]
     public EnemySpawn currentSpawn;
+    private QuestManager _questManager;
     #endregion
 
     #region Camera Move related References
@@ -40,10 +41,12 @@ public class CameraManager : MonoBehaviour
     public EnemyBehavior enemyBehavior;
     #endregion
 
+    #region NPC Related
     [Header("NPC Related")]
     [PropertySpace(SpaceBefore = 15, SpaceAfter = 15)]
     public bool hasNPC;
     public NPCBehavior currentNPC;
+    #endregion
 
     #region Collider Config
     [Header("Collider Config")]
@@ -57,10 +60,9 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         _borderCollision = FindAnyObjectByType<BorderCollision>();
-
         _gameManager = FindAnyObjectByType<GameManager>();
-
         _goUI = FindAnyObjectByType<GoUI>();
+        _questManager = FindAnyObjectByType<QuestManager>();
 
         StartCoroutine(WaitToCheckEnemies(0));
     }
@@ -136,6 +138,7 @@ public class CameraManager : MonoBehaviour
         }
 
         hasNPC = false;
+        _questManager.canUpdateRoom = true;
         enemyCounter = 0;
         _cameraViewCollider.enabled = true;
         _goUI.ToggleUI(false);

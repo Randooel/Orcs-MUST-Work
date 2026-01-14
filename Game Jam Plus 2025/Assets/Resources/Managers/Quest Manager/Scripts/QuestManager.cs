@@ -6,6 +6,9 @@ public class QuestManager : MonoBehaviour
     public string[] nextRoom;
     public int currentRoomIndex;
 
+    [Space(10)]
+    public bool canUpdateRoom;
+
     void Start()
     {
         if(nextRoom == null)
@@ -16,6 +19,10 @@ public class QuestManager : MonoBehaviour
 
     public void UpdateRoom()
     {
-        currentRoomIndex++;
+        if(canUpdateRoom)
+        {
+            canUpdateRoom = false;
+            currentRoomIndex++;
+        }
     }
 }
