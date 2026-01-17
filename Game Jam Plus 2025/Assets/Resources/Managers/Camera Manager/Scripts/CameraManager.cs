@@ -64,7 +64,8 @@ public class CameraManager : MonoBehaviour
         _goUI = FindAnyObjectByType<GoUI>();
         _questManager = FindAnyObjectByType<QuestManager>();
 
-        StartCoroutine(WaitToCheckEnemies(0));
+        CheckForEnemies(false);
+        //StartCoroutine(WaitToCheckEnemies(0));
     }
 
     void Update()
