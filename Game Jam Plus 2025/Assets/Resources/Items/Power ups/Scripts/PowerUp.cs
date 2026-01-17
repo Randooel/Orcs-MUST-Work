@@ -42,7 +42,7 @@ public class PowerUp : MonoBehaviour
             }
             if(_powerUpType ==PowerUpType.Damage)
             {
-                _currentPlayer.GetComponent<PlayerAttacks1>().CurrentDamage++;
+                _currentPlayer.GetComponent<PlayerAttacks>().CurrentDamage++;
             }
         }
         else

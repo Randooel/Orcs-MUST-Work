@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 29966731233247057}
   m_Layer: 6
-  m_Name: Front Target
+  m_Name: Target2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1945421749905321220}
   m_Layer: 6
-  m_Name: Back Target
+  m_Name: Target1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5159,6 +5159,13 @@ MonoBehaviour:
   _hitCounter: 0
   _resetCounterTime: 1.5
   _isAnim: 0
+  _isAttacking: 0
+  dashForce: 0
+  _attackDashForce:
+  - 5
+  - 15
+  - 25
+  - 10
 --- !u!114 &3782336629066584565
 MonoBehaviour:
   m_ObjectHideFlags: 0

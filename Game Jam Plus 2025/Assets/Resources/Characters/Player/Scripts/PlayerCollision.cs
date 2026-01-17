@@ -45,7 +45,7 @@ public class PlayerCollision : MonoBehaviour
     {
         _collider2D.enabled = false;
 
-        var pAttack = GetComponent<PlayerAttacks1>();
+        var pAttack = GetComponent<PlayerAttacks>();
         pAttack.CurrentThrowForce = 0f;
     }
 

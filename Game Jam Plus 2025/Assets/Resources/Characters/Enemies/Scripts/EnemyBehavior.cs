@@ -1,6 +1,9 @@
 using DG.Tweening;
 using System.Collections;
+using System.ComponentModel;
 using UnityEngine;
+using Sirenix.OdinInspector;
+using ReadOnlyAttribute = Sirenix.OdinInspector.ReadOnlyAttribute;
 
 public abstract class EnemyBehavior : MonoBehaviour
 {
@@ -163,12 +166,12 @@ public abstract class EnemyBehavior : MonoBehaviour
             {
                 //Debug.LogWarning("Hit enemy: " + name + "Hit enemy state: " + CurrentState);
 
-                if (collision.transform.parent.TryGetComponent(out PlayerAttacks1 playerAttacks1))
+                if (collision.transform.parent.TryGetComponent(out PlayerAttacks playerAttacks1))
                 {
                     _isDuringThrow = true;
 
-                    int dmg = collision.GetComponentInParent<PlayerAttacks1>().CurrentDamage;
-                    float throwForce = collision.GetComponentInParent<PlayerAttacks1>().CurrentThrowForce;
+                    int dmg = collision.GetComponentInParent<PlayerAttacks>().CurrentDamage;
+                    float throwForce = collision.GetComponentInParent<PlayerAttacks>().CurrentThrowForce;
                     var direction = collision.transform;
 
                     _isDuringThrow = true;

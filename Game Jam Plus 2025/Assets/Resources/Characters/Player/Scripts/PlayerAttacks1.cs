@@ -8,7 +8,7 @@ using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 
-public class PlayerAttacks1 : MonoBehaviour
+public class PlayerAttacks : MonoBehaviour
 {
     private DialogueManager _dialogueManger;
     private PlayerRage _playerRage;

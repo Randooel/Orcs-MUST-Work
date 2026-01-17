@@ -169,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
         _rb.AddForce(direction * _dodgeForce, ForceMode2D.Impulse);
 
-        var pAttack = GetComponent<PlayerAttacks1>();
+        var pAttack = GetComponent<PlayerAttacks>();
         pAttack.CurrentThrowForce = 30f;
     }
 
@@ -228,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isWalking", false);
         animator.Play("Idle");
 
-        var playerAttack1 = GetComponent<PlayerAttacks1>();
+        var playerAttack1 = GetComponent<PlayerAttacks>();
 
         playerAttack1.IsAnim = false;
     }
