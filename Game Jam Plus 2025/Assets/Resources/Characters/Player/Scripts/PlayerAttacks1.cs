@@ -10,25 +10,41 @@ using Sirenix.OdinInspector;
 
 public class PlayerAttacks : MonoBehaviour
 {
-    private DialogueManager _dialogueManger;
-    private PlayerRage _playerRage;
-    
     [Title("Other Scripts & Components References")]
     private PlayerMovement _playerMovement;
+    private DialogueManager _dialogueManger;
+    private PlayerRage _playerRage;
 
-    [Title("Combo config")]
+    #region Combo Config TabGroup
+    [TabGroup("Combo config")]
     [SerializeField] int _currentDamage = 0;
-    [SerializeField] float _currentThrowForce = 0;
-    [SerializeField] int _hitCounter;
-    [SerializeField] float _resetCounterTime = 1.5f;
-    [SerializeField] bool _isAnim;
-    private Coroutine _currentCoroutine;
 
-    [Title("Movement during attacks")]
+    [TabGroup("Combo config")]
+    [SerializeField] float _currentThrowForce = 0;
+
+    [TabGroup("Combo config")]
+    [SerializeField] int _hitCounter;
+
+    [TabGroup("Combo config")]
+    [SerializeField] float _resetCounterTime = 1.5f;
+
+    [TabGroup("Combo config")]
+    [SerializeField] bool _isAnim;
+
+    [TabGroup("Combo config")]
+    private Coroutine _currentCoroutine;
+    #endregion
+
+    #region Movement During Attacks Config TabGroup
+    [TabGroup("Movement During Attack Config")]
     [SerializeField] private bool _isAttacking;
+
+    [TabGroup("Movement during attacks")]
     [SerializeField] private float dashForce;
 
+    [TabGroup("Movement during attacks")]
     [SerializeField] [Range(0, 50)] private List<float> _attackDashForce = new List<float>(4);
+    #endregion
 
 
     public int CurrentDamage { get => _currentDamage; set => _currentDamage = value; }
@@ -53,6 +69,9 @@ public class PlayerAttacks : MonoBehaviour
         {
             Attack();
         }
+
+        // SCRIPT TO TEST ONE SPECIFC ATTACK AT A TIME
+        _hitCounter = 0;
     }
 
     void FixedUpdate()

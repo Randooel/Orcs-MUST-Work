@@ -13,31 +13,57 @@ public class PlayerMovement : MonoBehaviour
     [Title("Other Scripts & Components References")]
     public Animator animator;
 
+    #region Movement Related TabGroup
     [Title("Status")]
+    [TabGroup("Movement Related")]
     [SerializeField] bool _isInvincible;
+
+    [TabGroup("Movement Related")]
     [SerializeField] bool _isSuperArmorActive;
 
     [Title("Walk Config")]
+    [TabGroup("Movement Related")]
     public bool canMove;
+
+    [TabGroup("Movement Related")]
     [SerializeField] [Range(1, 20)] float _moveSpeed = 6;
 
     [Title("Dodge Config")]
+    [TabGroup("Movement Related")]
     [SerializeField] float _dodgeForce = 50;
-    [SerializeField] Vector2 lastVelocity;
-    float bounceFactor = 1.2f;
 
-    [Space(10)]
+    [TabGroup("Movement Related")]
+    [SerializeField] Vector2 lastVelocity;
+
+    [TabGroup("Movement Related")]
+    float bounceFactor = 1.2f;
+    #endregion
+
+    #region Visual TabGroup
+    [Space(15)]
+    [TabGroup("Visual")]
     public Transform orcVisual;
+
+    [TabGroup("Visual")]
     private Rigidbody2D _rb;
 
+
     [Title("Shadow Config")]
+    [TabGroup("Visual")]
     [SerializeField] GameObject _shadow;
 
     #region Particles Variables
     [Title("Particles Related")]
+    [TabGroup("Visual")]
+    [PropertySpace(SpaceBefore = 15)]
     [SerializeField] protected ParticleSystem dustParticles;
+
+    [TabGroup("Visual")]
     [SerializeField] protected Rigidbody2D rigidBody;
+
+    [TabGroup("Visual")]
     protected Vector2 particleStartPos;
+    #endregion
     #endregion
 
     public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
