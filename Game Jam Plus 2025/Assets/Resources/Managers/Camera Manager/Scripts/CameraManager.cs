@@ -60,8 +60,8 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         _borderCollision = FindAnyObjectByType<BorderCollision>();
-        _gameManager = FindAnyObjectByType<GameManager>();
         _goUI = FindAnyObjectByType<GoUI>();
+        _gameManager = FindAnyObjectByType<GameManager>();
         _questManager = FindAnyObjectByType<QuestManager>();
 
         CheckForEnemies(false);

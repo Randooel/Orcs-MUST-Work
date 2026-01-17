@@ -10,14 +10,15 @@ public class GameManager : MonoBehaviour
     QuestManager _questManager;
     GoUI _goUI;
 
-
-    void Start()
+    private void Awake()
     {
         _cameraManager = FindAnyObjectByType<CameraManager>();
         _questManager = FindAnyObjectByType<QuestManager>();
-
         _goUI = FindAnyObjectByType<GoUI>();
+    }
 
+    void Start()
+    {
         HideAndLockMouse();
 
         //Time.timeScale = 0.5f;
