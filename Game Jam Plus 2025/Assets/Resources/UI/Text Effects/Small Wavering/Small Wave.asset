@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f8a5a04a3b145299afb77db9d03c233, type: 3}
-  m_Name: Wavering
+  m_Name: Small Wave
   m_EditorClassIdentifier: 
   effectTag: 
   startCharIndex: 0
   charLength: 0
   animationType: 2
   fixedDuration: 0
-  durationPerChar: 0.5
+  durationPerChar: 0.3
   timeBetweenChars: 0.05
   noDelayForChars: 0
   reverseCharOrder: 0
@@ -47,5 +47,5 @@ MonoBehaviour:
     m_RotationOrder: 4
   clampBetween0And1: 0
   timeType: 0
-  startOffset: {x: -0, y: 0.001}
-  endOffset: {x: 0, y: -0.001}
+  startOffset: {x: -0, y: -2}
+  endOffset: {x: 0, y: 2}

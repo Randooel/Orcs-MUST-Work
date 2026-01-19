@@ -899,4 +899,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pause
   isPaused: 0
+  togglePause:
+    m_Name: Toggle Pause
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 3d035671-6e13-47ce-ba84-0626067e398b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   _visual: {fileID: 4236900549034827423}
