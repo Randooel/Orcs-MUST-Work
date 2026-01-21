@@ -1,3 +1,5 @@
+using Sirenix.OdinInspector;
+using Udar.SceneManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -9,6 +11,12 @@ public class GameManager : MonoBehaviour
     CameraManager _cameraManager;
     QuestManager _questManager;
     GoUI _goUI;
+
+    [Title("Scenes References")]
+    [PropertySpace(SpaceBefore = 15)]
+    [SerializeField] public SceneField titleScreen;
+    [SerializeField] public SceneField officeScene;
+    [SerializeField] public SceneField finalScreen;
 
     private void Awake()
     {
@@ -28,7 +36,7 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Office");
+            //SceneManager.LoadScene(officeScene.Name);
         }
     }
 

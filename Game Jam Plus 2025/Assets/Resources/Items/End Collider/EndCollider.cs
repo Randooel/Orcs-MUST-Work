@@ -7,7 +7,8 @@ public class EndCollider : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene("FinalScreen");
+            var finalScreen = FindAnyObjectByType<GameManager>().finalScreen;
+            SceneManager.LoadScene(finalScreen.Name);
         }
     }
 }

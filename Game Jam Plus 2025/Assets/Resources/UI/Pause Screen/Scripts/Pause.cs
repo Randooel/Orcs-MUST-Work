@@ -1,4 +1,5 @@
 using Sirenix.OdinInspector;
+using Udar.SceneManager;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -74,7 +75,9 @@ public class Pause : MonoBehaviour
     {
         //isPaused = false;
 
+        var titleScene = _gameManager.titleScreen;
+
         Time.timeScale = 1.0f;
-        SceneManager.LoadScene("TitleScreen");
+        SceneManager.LoadScene(titleScene.Name);
     }
 }

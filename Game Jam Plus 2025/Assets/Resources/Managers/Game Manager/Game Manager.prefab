@@ -44,3 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2530efe71fa231c49a3d3734105e5327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleScreen:
+    _sceneOB: {fileID: 102900000, guid: 5cd5ca3c2a43579479d529d7f4420643, type: 3}
+    _name: 01_TitleScreen
+    _path: Assets/Resources/Scenes/01_TitleScreen.unity
+    _buildIndex: 0
+  finalScreen:
+    _sceneOB: {fileID: 102900000, guid: 7ddaa98594aff334db9c280aa5022d4d, type: 3}
+    _name: 03_FinalScreen
+    _path: Assets/Resources/Scenes/03_FinalScreen.unity
+    _buildIndex: 2

@@ -13,7 +13,7 @@ public class GoUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _goText;
     [SerializeField] private Image _arrow;
 
-    void Start()
+    void Awake()
     {
         // Setting references up
         _cameraManager = FindAnyObjectByType<CameraManager>();
@@ -23,6 +23,11 @@ public class GoUI : MonoBehaviour
 
         // Visual
         ToggleUI(false);
+    }
+
+    void Start()
+    {
+        
     }
 
     public void ToggleUI(bool value)

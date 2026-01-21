@@ -41323,17 +41323,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1529462517449321901, guid: 46abd4c9e45b9164f94c045e064a51c7, type: 3}
   m_PrefabInstance: {fileID: 4116390421880386383}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1323179221 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3893396921843631531, guid: 46abd4c9e45b9164f94c045e064a51c7, type: 3}
-  m_PrefabInstance: {fileID: 4116390421880386383}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2530efe71fa231c49a3d3734105e5327, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1345172709
 GameObject:
   m_ObjectHideFlags: 0
@@ -81512,6 +81501,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3893396921843631531, guid: 46abd4c9e45b9164f94c045e064a51c7, type: 3}
+      propertyPath: officeScene._name
+      value: 02_Office
+      objectReference: {fileID: 0}
+    - target: {fileID: 3893396921843631531, guid: 46abd4c9e45b9164f94c045e064a51c7, type: 3}
+      propertyPath: officeScene._path
+      value: Assets/Resources/Scenes/02_Office.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 3893396921843631531, guid: 46abd4c9e45b9164f94c045e064a51c7, type: 3}
+      propertyPath: officeScene._sceneOB
+      value: 
+      objectReference: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
+    - target: {fileID: 3893396921843631531, guid: 46abd4c9e45b9164f94c045e064a51c7, type: 3}
+      propertyPath: officeScene._buildIndex
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4037292086779192053, guid: 46abd4c9e45b9164f94c045e064a51c7, type: 3}
       propertyPath: m_Name
       value: Game Manager
@@ -82390,34 +82395,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6648924483306079235, guid: 0faf73f54c374b84683cbfca4f82b888, type: 3}
-      propertyPath: togglePause.m_Name
-      value: Toggle Pause
-      objectReference: {fileID: 0}
-    - target: {fileID: 6648924483306079235, guid: 0faf73f54c374b84683cbfca4f82b888, type: 3}
-      propertyPath: togglePause.m_SingletonActionBindings.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6648924483306079235, guid: 0faf73f54c374b84683cbfca4f82b888, type: 3}
-      propertyPath: togglePause.m_SingletonActionBindings.Array.data[0].m_Id
-      value: 83e26434-5f8a-4647-87fa-7019cfdcdb84
-      objectReference: {fileID: 0}
-    - target: {fileID: 6648924483306079235, guid: 0faf73f54c374b84683cbfca4f82b888, type: 3}
-      propertyPath: togglePause.m_SingletonActionBindings.Array.data[0].m_Path
-      value: <Keyboard>/escape
-      objectReference: {fileID: 0}
-    - target: {fileID: 6648924483306079235, guid: 0faf73f54c374b84683cbfca4f82b888, type: 3}
-      propertyPath: togglePause.m_SingletonActionBindings.Array.data[0].m_Action
-      value: Toggle Pause
-      objectReference: {fileID: 0}
     - target: {fileID: 7000981529639911861, guid: 0faf73f54c374b84683cbfca4f82b888, type: 3}
       propertyPath: m_Name
       value: Pause Screen
       objectReference: {fileID: 0}
-    - target: {fileID: 8952742395523528041, guid: 0faf73f54c374b84683cbfca4f82b888, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1323179221}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
