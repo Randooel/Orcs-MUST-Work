@@ -22,7 +22,7 @@ public class GoUI : MonoBehaviour
         _arrow = GetComponentInChildren<Image>();
 
         // Visual
-        ToggleUI(false);
+        ToggleUI(false); 
     }
 
     void Start()

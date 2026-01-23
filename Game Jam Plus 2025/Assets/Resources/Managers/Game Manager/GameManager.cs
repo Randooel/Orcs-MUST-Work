@@ -34,10 +34,12 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        /*
         if(Input.GetKeyDown(KeyCode.R))
         {
-            //SceneManager.LoadScene(officeScene.Name);
+            SceneManager.LoadScene(officeScene.Name);
         }
+        */
     }
 
     public void HideAndLockMouse()
