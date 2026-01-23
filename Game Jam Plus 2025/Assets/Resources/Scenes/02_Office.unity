@@ -80328,7 +80328,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1956440630
 Transform:
   m_ObjectHideFlags: 0
@@ -81081,6 +81081,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1737130058}
     m_Modifications:
+    - target: {fileID: 1186646960129992776, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: _quickAttack1.newDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186646960129992776, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: _quickAttack2.newDamage
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186646960129992776, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: _strongAttack1.newDamage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186646960129992776, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: _strongAttack2.newDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186646960129992776, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: _quickAttack1.newThrowForce
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186646960129992776, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: _quickAttack2.newThrowForce
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186646960129992776, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: _strongAttack1.newThrowForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1186646960129992776, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
+      propertyPath: _strongAttack2.newThrowForce
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 2573253396607429432, guid: 3479f0e02731eb74c900e3028072fbe3, type: 3}
       propertyPath: m_Name
       value: Player

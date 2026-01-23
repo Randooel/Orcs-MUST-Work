@@ -16,41 +16,56 @@ public class PlayerAttacks : MonoBehaviour
     private PlayerRage _playerRage;
 
     #region Combo Config TabGroup
-    [TabGroup("Combo config")]
+    [TabGroup("1", "Combo config")]
     [SerializeField] int _currentDamage = 0;
 
-    [TabGroup("Combo config")]
+    [TabGroup("1", "Combo config")]
     [SerializeField] float _currentThrowForce = 0;
 
-    [TabGroup("Combo config")]
-    [SerializeField] int _hitCounter;
+    [TabGroup("1", "Combo config")]
+    [SerializeField] int _quickHitCounter;
 
-    [TabGroup("Combo config")]
+    [TabGroup("1", "Combo config")]
+    [SerializeField] int _strongHitCounter;
+
+    [TabGroup("1", "Combo config")]
     [SerializeField] float _resetCounterTime = 1.5f;
 
-    [TabGroup("Combo config")]
+    [TabGroup("1", "Combo config")]
     [SerializeField] bool _isAnim;
 
-    [TabGroup("Combo config")]
+    [TabGroup("1", "Combo config")]
     private Coroutine _currentCoroutine;
     #endregion
 
-    #region Movement During Attacks Config TabGroup
-    [TabGroup("Movement During Attack Config")]
-    [SerializeField] private bool _isAttacking;
+    #region Attack Stats Modifiers
+    [TabGroup("2", "Quick Attacks Modifiers")] [SerializeField] AttackModifier _quickAttack1;
+    [TabGroup("2", "Quick Attacks Modifiers")] [SerializeField] AttackModifier _quickAttack2;
 
-    [TabGroup("Movement during attacks")]
-    [SerializeField] private float dashForce;
-
-    [TabGroup("Movement during attacks")]
-    [SerializeField] [Range(0, 50)] private List<float> _attackDashForce = new List<float>(4);
+    [TabGroup("2", "Strong Attacks Modifiers")] [SerializeField] AttackModifier _strongAttack1;
+    [TabGroup("2", "Strong Attacks Modifiers")] [SerializeField] AttackModifier _strongAttack2;
     #endregion
 
+    #region Movement During Attacks Config TabGroup
+    [TabGroup("3", "Movement During Attacks")]
+    [SerializeField] private bool _isAttacking;
 
+    [TabGroup("3", "Movement During Attacks")]
+    [SerializeField] private float dashForce;
+
+    [TabGroup("3", "Movement During Attacks")]
+    [SerializeField][Range(0, 100)] private List<float> _attackDashForce = new List<float>(4);
+    #endregion
+
+    #region Encapsulated variables
     public int CurrentDamage { get => _currentDamage; set => _currentDamage = value; }
     public float CurrentThrowForce { get => _currentThrowForce; set => _currentThrowForce = value; }
     public bool IsAnim { get => _isAnim; set => _isAnim = value; }
+    #endregion
 
+    
+
+    #region Start, Update and FixedUpdate
     void Start()
     {
         if (_playerMovement == null)
@@ -67,11 +82,16 @@ public class PlayerAttacks : MonoBehaviour
     {
         if (_playerMovement.canMove && !IsAnim && Input.GetMouseButtonDown(0))
         {
-            Attack();
+            //Attack();
+            QuickAttack();
+        }
+        if(_playerMovement.canMove && !IsAnim && Input.GetMouseButtonDown(1))
+        {
+            StrongAttack();
         }
 
         // SCRIPT TO TEST ONE SPECIFC ATTACK AT A TIME
-        _hitCounter = 0;
+        //_quickHitCounter = 0;
     }
 
     void FixedUpdate()
@@ -81,58 +101,79 @@ public class PlayerAttacks : MonoBehaviour
             MoveDuringAttack(dashForce);
         }
     }
+    #endregion
 
-    private void Attack()
+
+
+    private void QuickAttack()
     {
-        _playerMovement.canMove = false;
-
-        if (_hitCounter == 0)
+        if (_quickHitCounter == 0)
         {
-            _hitCounter++;
-            CurrentThrowForce = _attackDashForce[0];
+            _quickHitCounter++;
 
+            // Setting Damage and ThrowForce
+            CurrentDamage = _quickAttack1.newDamage;
+            CurrentThrowForce = _quickAttack1.newThrowForce /* _attackDashForce[4] + */ ;
+
+            // Setting dash force
             dashForce = _attackDashForce[0];
 
             StopCoroutine(WaitToResetHitCounter());
-
-            //transform.DOMoveX(transform.position.x + 1.5f, 0.5f);
-
-            _playerMovement.animator.SetTrigger("quick attack 0");
+            _playerMovement.animator.SetTrigger("quick attack 1");
         }
-        else if (_hitCounter == 1)
+        else if (_quickHitCounter == 1)
         {
-            _hitCounter++;
-            CurrentThrowForce = _attackDashForce[1];
+            _quickHitCounter++;
+            CurrentThrowForce = _quickAttack2.newThrowForce;
 
             dashForce = _attackDashForce[1];
 
             StopCoroutine(WaitToResetHitCounter());
 
-            _playerMovement.animator.SetTrigger("quick attack 1");
-        }
-        else if (_hitCounter == 2)
-        {
-            _hitCounter++;
-            CurrentThrowForce = 5f;
+            _playerMovement.animator.SetTrigger("quick attack 2");
 
-            CurrentThrowForce = _attackDashForce[2];
+            _quickHitCounter = 0;
+        }
+
+        HandleAttack();
+    }
+
+    private void StrongAttack()
+    {
+        if (_strongHitCounter == 0)
+        {
+            _strongHitCounter++;
+
+            // Setting Damage and ThrowForce
+            CurrentDamage = _strongAttack1.newDamage;
+            CurrentThrowForce = _strongAttack1.newThrowForce /* _attackDashForce[4] + */ ;
+
+            // Setting dash force
+            dashForce = _attackDashForce[2];
 
             StopCoroutine(WaitToResetHitCounter());
-
-            _playerMovement.animator.SetTrigger("quick attack 2");
+            _playerMovement.animator.SetTrigger("strong attack 1");
         }
-        else if (_hitCounter == 3)
+        else if (_strongHitCounter == 1)
         {
-            _hitCounter++;
-            CurrentThrowForce = 50f;
+            _strongHitCounter++;
+            CurrentDamage = _strongAttack2.newDamage;
+            CurrentThrowForce = _strongAttack2.newThrowForce;
 
             dashForce = _attackDashForce[3];
 
             StopCoroutine(WaitToResetHitCounter());
 
-            _playerMovement.animator.SetTrigger("quick attack 3");
+            _playerMovement.animator.SetTrigger("strong attack 2");
+
+            _strongHitCounter = 0;
         }
 
+        HandleAttack();
+    }
+
+    private void HandleAttack()
+    {
         IsAnim = true;
 
         if(_currentCoroutine != null)
@@ -191,9 +232,9 @@ public class PlayerAttacks : MonoBehaviour
 
     private void ResetHitCounter(int maxCount)
     {
-        if (_hitCounter >= maxCount)
+        if (_quickHitCounter >= maxCount)
         {
-            _hitCounter = 0;
+            _quickHitCounter = 0;
             CurrentDamage = 1;
         }
     }
@@ -207,4 +248,12 @@ public class PlayerAttacks : MonoBehaviour
 
         _currentCoroutine = null;
     }
+}
+
+[System.Serializable]
+public class AttackModifier
+{
+    public int newDamage;
+
+    public float newThrowForce;
 }

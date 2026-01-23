@@ -66,11 +66,13 @@ public class PlayerMovement : MonoBehaviour
     #endregion
     #endregion
 
+    #region Encapsulated Variables
     public float MoveSpeed { get => _moveSpeed; set => _moveSpeed = value; }
     public bool IsInvincible { get => _isInvincible; set => _isInvincible = value; }
     public bool IsSuperArmorActive { get => _isSuperArmorActive; set => _isSuperArmorActive = value; }
     public Vector2 LastVelocity { get => lastVelocity; set => lastVelocity = value; }
     public float BounceFactor { get => bounceFactor; set => bounceFactor = value; }
+    #endregion
 
     void Start()
     {
@@ -95,10 +97,10 @@ public class PlayerMovement : MonoBehaviour
         if(canMove)
         {
             Move();
-            if(Input.GetMouseButtonDown(1) || Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space))
             {
-                DodgeAttack();
                 //Jump();
+                DodgeAttack();
             }
         }
     }
